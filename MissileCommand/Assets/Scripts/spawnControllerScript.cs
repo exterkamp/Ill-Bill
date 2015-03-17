@@ -31,6 +31,7 @@ public class spawnControllerScript : MonoBehaviour {
 
 				m.target = targetPos;
 				m.speed = 0.1f;
+				m.clusterChance = -1.0f;
 				//print(m.target.x + "," + m.target.y);
 				newMissile.tag = "friendlyMissile";
 			}
@@ -56,7 +57,7 @@ public class spawnControllerScript : MonoBehaviour {
 		return curSilo;
 	}
 
-	GameObject findSiloTarget(){
+	public GameObject findSiloTarget(){
 		//assume there is a target left
 		bool canTarget = false;
 
@@ -107,9 +108,10 @@ public class spawnControllerScript : MonoBehaviour {
 
 
 				m.speed = 0.025f;
+				m.clusterChance = 0.001f;
 				newMissile.tag = "enemyMissile";
 			}
-			yield return new WaitForSeconds(Random.Range(0.5f,2f));
+			yield return new WaitForSeconds(Random.Range(1f,3f));
 
 			
 		}
