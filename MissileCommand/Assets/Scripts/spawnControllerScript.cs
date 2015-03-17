@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class spawnControllerScript : MonoBehaviour {
 	
@@ -8,13 +9,19 @@ public class spawnControllerScript : MonoBehaviour {
 	//public GameObject[] targetPoints;
 	public GameObject[] siloPoints;
 
+	public int missilesRemaining;
+	Text GUINumberMissileRemaining;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (missileLaunch());
+		missilesRemaining = 30;
+		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		GUINumberMissileRemaining.text = missilesRemaining.ToString ();
 		if (Input.GetMouseButtonDown (0)) {
 			//get silo
 			Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -95,7 +102,7 @@ public class spawnControllerScript : MonoBehaviour {
 			//new Pos
 			GameObject target = findSiloTarget();
 
-			if (target != null)
+			if (target != null && missilesRemaining > 0)
 			{
 				Vector3 newPos = spawnPoints [Random.Range (0,spawnPoints.Length)].transform.position;
 				newPos.x = newPos.x + Random.Range(0f,2f) - Random.Range(-2f,0f);
@@ -110,6 +117,7 @@ public class spawnControllerScript : MonoBehaviour {
 				m.speed = 0.025f;
 				m.clusterChance = 0.001f;
 				newMissile.tag = "enemyMissile";
+				missilesRemaining -= 1;
 			}
 			yield return new WaitForSeconds(Random.Range(1f,3f));
 
