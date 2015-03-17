@@ -3,23 +3,29 @@ using System.Collections;
 
 public class SiloController : MonoBehaviour {
 
-	private int ammunition;
-	private bool canFire;
+	public int ammunition;
+	public siloState state;
+	//private bool canFire;
 	private GameObject magazine;
 	private ArrayList magazineObjects = new ArrayList();
+	public Sprite ruined;
+
+
+	public enum siloState {ready,reloading,ruins,roundsComplete};
 
 	// Use this for initialization
 	void Start () {
-		ammunition = 20;
-		canFire = true;
+		//ammunition = 10;
+		state = siloState.ready;
+		//canFire = true;
 		magazine = gameObject.transform.parent.FindChild("magazine").gameObject;
 		fillMagazine ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (ammunition == 0) {
-			canFire = false;
+		if (ammunition == 0 && state != siloState.ruins) {
+			state = siloState.roundsComplete;
 		}
 
 	}
@@ -47,6 +53,19 @@ public class SiloController : MonoBehaviour {
 	}
 
 	public bool canSiloFire(){
-		return canFire;
+		if (state == siloState.ready)
+			return true;
+		else
+			return false;
+		//return canFire;
+	}
+
+	public void die(){
+		state = siloState.ruins;
+		GetComponent<SpriteRenderer> ().sprite = ruined;
+		int ammoMax = ammunition;
+		for (int i = 0; i < ammoMax; i++) {
+			decAmmo();
+		}
 	}
 }

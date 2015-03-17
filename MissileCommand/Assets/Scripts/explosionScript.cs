@@ -25,7 +25,18 @@ public class explosionScript : MonoBehaviour {
 				explosion.transform.position = collidee.gameObject.transform.position;
 				Destroy (collidee.gameObject.transform.parent.gameObject);
 			}
+			else if (collidee.gameObject.transform.parent.gameObject.CompareTag ("target")) {
+				//Destroy (collidee.gameObject.transform.parent.gameObject);
+				//remove from the controller
+				SiloController s = collidee.gameObject.GetComponent<SiloController>();
+				s.die();
+				
+				//spawnControllerScript s = GameObject.FindGameObjectWithTag("pointController").GetComponents<spawnControllerScript>();
+				//s.blowUpTarget(collidee.gameObject);
+			}
 		}
+		//destroy a city
+
 	}
 
 	IEnumerator die()

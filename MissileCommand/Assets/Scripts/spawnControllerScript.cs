@@ -5,8 +5,8 @@ public class spawnControllerScript : MonoBehaviour {
 	
 	public GameObject[] prefabs;
 	public GameObject[] spawnPoints;
-	public GameObject[] targetPoints;
-
+	//public GameObject[] targetPoints;
+	public GameObject[] siloPoints;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class spawnControllerScript : MonoBehaviour {
 			//get silo
 			Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			targetPos.z = 0f;
-			GameObject silo = findSilo(targetPos);
+			GameObject silo = findSiloFire(targetPos);
 			//CHECK NULL
 			if (silo != null){
 				Vector3 newPos = silo.transform.position;
@@ -41,11 +41,11 @@ public class spawnControllerScript : MonoBehaviour {
 		
 	}
 
-	GameObject findSilo(Vector3 targetPos){
+	GameObject findSiloFire(Vector3 targetPos){
 		float curDistance = 1000f;
 		GameObject curSilo = null;
 		//read ammo cap
-		foreach (GameObject g in targetPoints){
+		foreach (GameObject g in siloPoints){
 			SiloController s = g.GetComponentInChildren<SiloController>();
 			if (s.canSiloFire() && (Vector3.Distance (targetPos, g.transform.position)) < curDistance){
 				curSilo = g;
@@ -53,57 +53,70 @@ public class spawnControllerScript : MonoBehaviour {
 			}
 
 		}
-		
 		return curSilo;
+	}
 
+	GameObject findSiloTarget(){
+		//assume there is a target left
+		bool canTarget = false;
 
-
-		/*float distanceRight = Vector3.Distance (targetPos, targetPoints[0].transform.position);
-		float distanceMid = Vector3.Distance (targetPos, targetPoints[1].transform.position);
-		float distanceLeft = Vector3.Distance (targetPos, targetPoints[2].transform.position);
-		//
-		Vector3 newPos = targetPoints [1].transform.position;
-		if (distanceRight < distanceMid)
-		{
-			newPos = targetPoints [0].transform.position;
+		foreach (GameObject g in siloPoints) {
+			if (g.transform.FindChild("city").GetComponent<SiloController>().state != SiloController.siloState.ruins){
+				canTarget = true;
+			}
 		}
-		if (distanceLeft < distanceMid){
-			newPos = targetPoints [2].transform.position;
-		}*/
 
+		GameObject targetSilo = null;
+
+		if (canTarget) {
+			while (targetSilo == null){
+				GameObject g = siloPoints[Random.Range (0,siloPoints.Length)];
+				if (g.transform.FindChild("city").GetComponent<SiloController>().state != SiloController.siloState.ruins){
+					targetSilo = g;
+				}
+			}
+		}
+
+		return targetSilo;
+		//siloPoints[Random.Range (0,siloPoints.Length)].transform.position;
+		
+		
 	}
 	
 	//fixed update
 	void FixedUpdate(){
 
-		//new Pos
-		//Vector3 newPos = spawnPoints [Random.Range (0,spawnPoints.Length)].transform.position;
-		//spawn a missile
-		//GameObject newMissile = (GameObject) Instantiate(prefabs[Random.Range (0,prefabs.Length)], newPos, new Quaternion(0,0,0,0));
-		//missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
-		//m.target = targetPoints[Random.Range (0,targetPoints.Length)].transform.position;
-		//var ScriptName = newMissile.GetComponent(missileScript);
-		// use the targetScript reference to access the variable Clips:
-		//scriptName.target += 10;
 	}
 
 	IEnumerator missileLaunch()
 	{
 		while (true) {
 			//new Pos
-			Vector3 newPos = spawnPoints [Random.Range (0,spawnPoints.Length)].transform.position;
-			newPos.x = newPos.x + Random.Range(0f,2f) - Random.Range(-2f,0f);
-			//print (newPos.x);
-			//spawn a missile
-			GameObject newMissile = (GameObject) Instantiate(prefabs[Random.Range (0,prefabs.Length)], newPos, new Quaternion(0,0,0,0));
-			missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
-			m.target = targetPoints[Random.Range (0,targetPoints.Length)].transform.position;
-			m.speed = 0.025f;
-			newMissile.tag = "enemyMissile";
+			GameObject target = findSiloTarget();
+
+			if (target != null)
+			{
+				Vector3 newPos = spawnPoints [Random.Range (0,spawnPoints.Length)].transform.position;
+				newPos.x = newPos.x + Random.Range(0f,2f) - Random.Range(-2f,0f);
+				//print (newPos.x);
+				//spawn a missile
+				GameObject newMissile = (GameObject) Instantiate(prefabs[Random.Range (0,prefabs.Length)], newPos, new Quaternion(0,0,0,0));
+				missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
+
+				m.target = target.transform.position;
+
+
+				m.speed = 0.025f;
+				newMissile.tag = "enemyMissile";
+			}
 			yield return new WaitForSeconds(Random.Range(0.5f,2f));
 
 			
 		}
+	}
+
+	public void blowUpTarget(GameObject targetToBlowUp){
+		//targetToBlowUp
 	}
 
 }
