@@ -14,8 +14,36 @@ public class spawnControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//setup difficulty
+		GameObject g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
+		DictionaryMinigame DM = g.GetComponent<DictionaryMinigame> ();
+		int difficulty = DM.getDiff ();
+
+		if (difficulty == 1) {
+			missilesRemaining = 15;
+		} else if (difficulty == 2) {
+			missilesRemaining = 15;
+		} else if (difficulty == 3) {
+			missilesRemaining = 15;
+		} else if (difficulty == 4) {
+			missilesRemaining = 25;
+		} else if (difficulty == 5) {
+			missilesRemaining = 25;
+		} else if (difficulty == 6) {
+			missilesRemaining = 25;
+		} else if (difficulty == 7) {
+			missilesRemaining = 30;
+		} else if (difficulty == 8) {
+			missilesRemaining = 30;
+		} else if (difficulty == 9) {
+			missilesRemaining = 30;
+		} else {
+			missilesRemaining = 35;
+		}
+
+
 		StartCoroutine (missileLaunch());
-		missilesRemaining = 30;
+		//missilesRemaining = 10;
 		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
 	}
 	
@@ -46,8 +74,44 @@ public class spawnControllerScript : MonoBehaviour {
 		}
 		
 		
-		
+		//check win conditions
+		int state = checkWinConditions ();
+		if (state == 1) {
+			print ("win");
+			Application.LoadLevel("splashMenu");
+		}
+		if (state == 2) {
+			print ("lose");
+			Application.LoadLevel("splashMenu");
+		}
+
 	}
+
+	int checkWinConditions(){
+		//0 means nothing is wrong, 1 is win, 2 is lose
+		int gameOver = 0;
+
+		//print (missilesRemaining);
+		//print (GameObject.FindGameObjectsWithTag("enemyMissile").Length);
+		if (missilesRemaining == 0 && GameObject.FindGameObjectsWithTag("enemyMissile").Length == 0){
+			gameOver = 1;
+		}
+
+		//if last missile blows you up, you lose still :( so check after checking if all missiles gone
+		int count = 0;
+		foreach (GameObject g in siloPoints) {
+			if (g.transform.FindChild("city").GetComponent<SiloController>().state == SiloController.siloState.ruins){
+				count++;
+			}
+		}
+		if (count == siloPoints.Length){
+			gameOver = 2;
+		}
+
+
+		return gameOver;
+	}
+
 
 	GameObject findSiloFire(Vector3 targetPos){
 		float curDistance = 1000f;
