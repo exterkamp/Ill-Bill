@@ -8,6 +8,7 @@ public class missileScript : MonoBehaviour {
 	public float speed;
 	public float clusterChance;
 	private LineRenderer lr;
+	public Sprite clusterMunition;
 
 	// Use this for initialization
 	void Start () {
@@ -54,7 +55,9 @@ public class missileScript : MonoBehaviour {
 			missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
 			
 			m.target = target.transform.position;
-			
+			m.clusterMunition = clusterMunition;
+
+			newMissile.GetComponentInChildren<SpriteRenderer>().sprite = clusterMunition;
 			
 			m.speed = speed;
 			m.clusterChance = clusterChance / 2.0f;

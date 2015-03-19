@@ -14,6 +14,8 @@ public class spawnControllerScript : MonoBehaviour {
 	Text GUINumberMissileRemaining;
 	Text scoreText;
 
+	public Sprite[] sprites;
+
 	//
 	float enemyMissileSpeed;
 	float friendlyMissileSpeed;
@@ -103,6 +105,8 @@ public class spawnControllerScript : MonoBehaviour {
 
 				GameObject newMissile = (GameObject) Instantiate(prefabs[Random.Range (0,prefabs.Length)], newPos, new Quaternion(0,0,0,0));
 				missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
+
+				newMissile.GetComponentInChildren<SpriteRenderer>().sprite = sprites[0];
 
 				m.target = targetPos;
 				m.speed = friendlyMissileSpeed;
@@ -242,12 +246,15 @@ public class spawnControllerScript : MonoBehaviour {
 				missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
 
 				m.target = target.transform.position;
+				m.clusterMunition = sprites[1];
 
+				newMissile.GetComponentInChildren<SpriteRenderer>().sprite = sprites[1];
 
 				m.speed = enemyMissileSpeed;
 				m.clusterChance = clusterChance;
 				newMissile.tag = "enemyMissile";
 				missilesRemaining -= 1;
+
 			}
 			yield return new WaitForSeconds(Random.Range(1f,3f));
 
