@@ -5,8 +5,8 @@ public class DestroyBG : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		
-		Destroy(other.gameObject);
+		if (other.transform.CompareTag("Background"))
+			Destroy(other.gameObject);
 		
 	}
 }

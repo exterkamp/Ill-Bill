@@ -5,6 +5,7 @@ public class DestroyObstacle : MonoBehaviour {
 	
 	void OnTriggerExit2D(Collider2D other)
 	{
-		Destroy(other.gameObject.transform.parent.gameObject);
+		if (other.transform.CompareTag("obstacle"))//put tag on collider too, no parent
+			Destroy(other.gameObject.transform.parent.gameObject);
 	}
 }

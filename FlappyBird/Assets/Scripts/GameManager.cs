@@ -53,11 +53,11 @@ public class GameManager : MonoBehaviour {
 		difficulty = DM.getDiff ();
 		goal = 15;
 
-			initSpawnWait=(float)(-0.15*difficulty+3.1);
+			initSpawnWait=(float)(-0.15*difficulty+3.1)-1;
 			spawnTimeDec=(float)(-0.02*difficulty+0.3);
 			
-			initSpeed=(float)(0.2667*difficulty+2.733);
-			speedInc=(float)(-0.02*difficulty+0.3);
+			initSpeed=(float)(/*0.2667*/0.15*difficulty)/*+2.733)*/;
+			speedInc=(float)(-0.002*difficulty+0.3);
 
 			if(difficulty<6){
 				spawnIncRate=3;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
 		prevSpawnInc=0;
 		prevSpeedInc=0;
 		spawnWait=initSpawnWait;
-		Obstacle.vel=new Vector2(-initSpeed, 0);
+		//Obstacle.vel=new Vector2(-initSpeed, 0);
 		restartText.text = "";
 		gameOverText.text = "";
 		StartCoroutine (CreateObstacle ());
@@ -145,13 +145,13 @@ public class GameManager : MonoBehaviour {
 
 		}
 
-		if(score>=prevSpeedInc+speedIncRate){
+		/*if(score>=prevSpeedInc+speedIncRate){
 			prevSpeedInc=score;
 
 			Obstacle.vel.x-=speedInc;
-		
 			
-		}
+			
+		}*/
 
 		if (restart )
 		{
@@ -190,8 +190,9 @@ public class GameManager : MonoBehaviour {
 		
 		while(true){
 			
-			Instantiate(rocks[Random.Range (0,rocks.Length)]);
-			
+			GameObject g = Instantiate(rocks[Random.Range (0,rocks.Length)]);
+			g.GetComponent<Obstacle>().speed = initSpeed;
+			g.GetComponent<Obstacle>().speedInc = speedInc;
 			yield return new WaitForSeconds(spawnWait+(float)(Random.Range (-1,1)*.1));
 
 			if (gameOver)

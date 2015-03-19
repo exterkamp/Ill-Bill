@@ -53,11 +53,12 @@ public class Player : MonoBehaviour {
 	}
 
 	// Die by collision
-	void OnCollisionEnter2D(Collision2D other) {
-		dead = true;
-		GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 425));
-		Die();
-
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.transform.CompareTag("obstacle")){
+			dead = true;
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 425));
+			Die();
+		}
 	}
 	
 	void Die() {
