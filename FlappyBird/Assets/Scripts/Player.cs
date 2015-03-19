@@ -23,14 +23,14 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		// Jump
-		if (Input.GetMouseButtonDown(0)&&dead==false) {
+		if (Input.GetMouseButtonDown(0) && !dead) {
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			GetComponent<Rigidbody2D>().AddForce(jumpForce);
 		}
 
 		// Die by being off screen
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-		if (screenPosition.y < 0) {
+		if (screenPosition.y < 0 && !dead) {
 			dead = true;
 			Die();
 		}
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		if(dead==false){
+		if(!dead){
 		GetComponent<Rigidbody2D>().position = new Vector2(-3, (float)(Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, -6f, 4.7f)));
 
 		if(GetComponent<Rigidbody2D>().position.y==4.7f){

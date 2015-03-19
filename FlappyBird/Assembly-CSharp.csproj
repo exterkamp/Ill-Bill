@@ -47,8 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Background.cs" />
+     <Compile Include="Assets\Scripts\ButtonController.cs" />
      <Compile Include="Assets\Scripts\DestroyBG.cs" />
      <Compile Include="Assets\Scripts\DestroyObstacle.cs" />
+     <Compile Include="Assets\Scripts\DictionaryMinigame.cs" />
+     <Compile Include="Assets\Scripts\FlappyDictionary.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GenerateBG.cs" />
      <Compile Include="Assets\Scripts\GenerateObst.cs" />

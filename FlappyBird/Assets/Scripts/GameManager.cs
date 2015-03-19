@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 	
 	public Text scoreText;
-	public Text fpsText;
 	public Text restartText;
 	public Text gameOverText;
+	public Text goalText;
+	public Text attemptText;
 
 
 	public float startWait;
@@ -22,44 +23,69 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject[] rocks;
 	public GameObject backgrounds;
-
+	public GameObject FlappyDictionary;
 
 	private static int score = 0;
+
 	public bool gameOver;
 	public bool restart;
-	private int prevSpawnInc=0;
-	private int prevSpeedInc=0;
+	private int prevSpawnInc;
+	private int prevSpeedInc;
 	private float spawnWait;
 
+	private GameObject g;
+	private DictionaryMinigame DM;
+	FlappyDictionary FD;
+	private int difficulty;
+	private int goal;
 
-
-	
-	/// <fps>
-
-
-	private  float updateInterval = 0.5F;
-	
-	private float accum   = 0; // FPS accumulated over the interval
-	private int   frames  = 0; // Frames drawn over the interval
-	private float timeleft; // Left time for current interval
-	
 	void Start()
 	{
 
+		if (GameObject.FindGameObjectsWithTag("dictionary_flappy").Length == 0)
+			Instantiate(FlappyDictionary);
+
+
+		g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
+		DM = g.GetComponent<DictionaryMinigame> ();
+		g = GameObject.FindGameObjectWithTag ("dictionary_flappy");
+		FD = g.GetComponent<FlappyDictionary> ();
+		difficulty = DM.getDiff ();
+		goal = 15;
+
+			initSpawnWait=(float)(-0.15*difficulty+3.1);
+			spawnTimeDec=(float)(-0.02*difficulty+0.3);
+			
+			initSpeed=(float)(0.2667*difficulty+2.733);
+			speedInc=(float)(-0.02*difficulty+0.3);
+
+			if(difficulty<6){
+				spawnIncRate=3;
+				speedIncRate=3;
+			}else{
+				spawnIncRate=2;
+				speedIncRate=2;
+			}
+
+
+
+
+
+		attemptText.text= "Attempts: "+FD.getAttempts();
+		goalText.text = "Goal: " + goal;
 		gameOver = false;
 		restart = false;
 		score = 0;
+		prevSpawnInc=0;
+		prevSpeedInc=0;
 		spawnWait=initSpawnWait;
 		Obstacle.vel=new Vector2(-initSpeed, 0);
 		restartText.text = "";
 		gameOverText.text = "";
-		fpsText.text = System.String.Format("{0:F2} FPS",60.00f);
-		timeleft = updateInterval;  
 		StartCoroutine (CreateObstacle ());
 		StartCoroutine (CreateBackground ());
 	}
-	
-	///   </fps>
+
 
 
 
@@ -79,20 +105,41 @@ public class GameManager : MonoBehaviour {
 		gameOver = true;
 		gameOverText.text = "Game Over! Score = "+score;
 
+		if(score>DM.getScore ()){
+			DM.setScore (score);
+		}
+
+		if(score>=goal){
+			DM.setWL (true);
+			LoadMenu();
+		}else{
+			DM.setWL (false);
+		}
+
+		if(FD.getAttempts()>=1){
+			FD.decAttempts();
+			attemptText.text= "Attempts: "+FD.getAttempts();
+		}
 
 
 		prevSpawnInc=0;
 		prevSpeedInc=0;
 
 	}
-	
+
+	void LoadMenu(){
+		//FD.setAttempts(3);
+		Destroy(FD.gameObject);
+		Application.LoadLevel("Menu");
+	}
+
 
 	void Update() {
 		scoreText.text = "Score: " + score;
 
 		if(score>=prevSpawnInc+spawnIncRate){
 			prevSpawnInc=score;
-			if(spawnWait-spawnTimeDec>1){
+			if(spawnWait-spawnTimeDec>.5){
 				spawnWait-=spawnTimeDec;
 			}
 
@@ -100,69 +147,35 @@ public class GameManager : MonoBehaviour {
 
 		if(score>=prevSpeedInc+speedIncRate){
 			prevSpeedInc=score;
-			//if(Obstacle.vel.x-speedInc<-6){
+
 			Obstacle.vel.x-=speedInc;
-			//}
-			
-		}
-
-		/// <fps>
-
-		timeleft -= Time.deltaTime;
-		accum += Time.timeScale/Time.deltaTime;
-		++frames;
 		
-		// Interval ended - updatetext and start new interval
-		if( timeleft <= 0.0 )
-		{
-			// display two fractional digits (f2 format)
-			float fps = accum/frames;
-			string format = System.String.Format("{0:F2} FPS",fps);
-			fpsText.text = format;
 			
-			if(fps < 30)
-				fpsText.material.color = Color.yellow;
-			else 
-				if(fps < 10)
-					fpsText.material.color = Color.red;
-			else
-				fpsText.material.color = Color.green;
-			//	DebugConsole.Log(format,level);
-			timeleft = updateInterval;
-			accum = 0.0F;
-			frames = 0;
 		}
 
-		///</fps>
-
-
-
-		///<restart>
-
-		if (restart)
+		if (restart )
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				Application.LoadLevel (Application.loadedLevel);
+				if(FD.getAttempts()>=1){
+					Application.LoadLevel (Application.loadedLevel);
+				}else{
+					LoadMenu();
+				}
+
 			}
 		}
 
 
-		///</restart>
-
-
-
 
 	}
-
-
-
+	
 
 	IEnumerator CreateBackground(){
 		
 		while(true){
 			Instantiate(backgrounds);
-			yield return new WaitForSeconds(9.9f);
+			yield return new WaitForSeconds(9.7f);
 
 			if (gameOver)
 				break;
@@ -179,20 +192,21 @@ public class GameManager : MonoBehaviour {
 			
 			Instantiate(rocks[Random.Range (0,rocks.Length)]);
 			
-			yield return new WaitForSeconds(spawnWait+(float)(Random.Range (-1,1)*.25));
+			yield return new WaitForSeconds(spawnWait+(float)(Random.Range (-1,1)*.1));
 
 			if (gameOver)
 			{
-				yield return new WaitForSeconds(.75f);
+				yield return new WaitForSeconds(.25f);
 				restart = true;
-				restartText.text = "Tap to Restart";
+				if(FD.getAttempts()<1){
+					restartText.text = "Tap to Quit";
+				}else{
+					restartText.text = "Tap to Restart";
+				}
 				break;
 			}
 		}
 	}
-
-
-
 
 
 

@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour {
 
 	private GameManager gameController;
 
-	void Start() {
+	void Start() { 
 		GetComponent<Rigidbody2D>().velocity = vel;
 		transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(-range, range), transform.position.z);
 
@@ -32,5 +32,6 @@ public class Obstacle : MonoBehaviour {
 			scored = true;
 			GameManager.IncScore();
 		}
+
 	}
 }
