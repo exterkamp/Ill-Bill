@@ -10,7 +10,9 @@ public class spawnControllerScript : MonoBehaviour {
 	public GameObject[] siloPoints;
 
 	public int missilesRemaining;
+	//DictionaryMinigame DM;
 	Text GUINumberMissileRemaining;
+	Text scoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -41,10 +43,13 @@ public class spawnControllerScript : MonoBehaviour {
 			missilesRemaining = 35;
 		}
 
+		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
+		scoreText = Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text>();
+		//DM = GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ();
 
 		StartCoroutine (missileLaunch());
 		//missilesRemaining = 10;
-		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
+
 	}
 	
 	// Update is called once per frame
@@ -73,19 +78,45 @@ public class spawnControllerScript : MonoBehaviour {
 
 		}
 		
-		
+		//set score
+		scoreText.text = "Score: " + GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ().getScore ().ToString();
+
 		//check win conditions
 		int state = checkWinConditions ();
 		if (state == 1) {
-			print ("win");
-			Application.LoadLevel("splashMenu");
+			setWinLoss(true);
 		}
 		if (state == 2) {
-			print ("lose");
+			setWinLoss(false);
+		}
+		if (state != 0) {
+			//calculate final score for cities
+			incScore(checkFinalCityScores());
+
 			Application.LoadLevel("splashMenu");
+			
 		}
 
 	}
+
+	public void incScore(int scoreInc){
+		GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ().setScore (GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ().getScore () + scoreInc);
+	}
+
+	public void setWinLoss(bool WL){
+		GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ().setWL (WL);
+	}
+
+	int checkFinalCityScores(){
+		int score = 0;
+		foreach (GameObject g in siloPoints) {
+			if (g.transform.FindChild("city").GetComponent<SiloController>().state != SiloController.siloState.ruins){
+				score += 200;
+			}
+		}
+		return score;
+	}
+
 
 	int checkWinConditions(){
 		//0 means nothing is wrong, 1 is win, 2 is lose

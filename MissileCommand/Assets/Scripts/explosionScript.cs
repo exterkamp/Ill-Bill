@@ -21,6 +21,9 @@ public class explosionScript : MonoBehaviour {
 		//destroy a missile
 		if (!collidee.gameObject.CompareTag ("explosion")) {
 			if (collidee.gameObject.transform.parent.gameObject.CompareTag ("enemyMissile")) {
+				//increment the score!
+				GameObject.FindGameObjectWithTag("pointController").GetComponent<spawnControllerScript>().incScore(50);
+
 				GameObject explosion = (GameObject)Instantiate(Resources.Load("explosion_object"));
 				explosion.transform.position = collidee.gameObject.transform.position;
 				Destroy (collidee.gameObject.transform.parent.gameObject);

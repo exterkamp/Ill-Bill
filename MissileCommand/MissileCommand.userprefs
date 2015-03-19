@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\spawnControllerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="52" Column="1" />
+      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="11" Column="17" />
+      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="95" Column="4" />
       <File FileName="Assets\Scripts\missileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\explosionScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\explosionScript.cs" Line="26" Column="5" />
       <File FileName="Assets\Scripts\SiloController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\buttonController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\buttonController.cs" Line="18" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
