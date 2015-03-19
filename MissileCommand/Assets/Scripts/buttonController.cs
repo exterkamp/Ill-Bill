@@ -6,6 +6,7 @@ public class buttonController : MonoBehaviour {
 
 	Text scoreText;
 	Text winText;
+	Text difficulty;
 	DictionaryMinigame DM;
 
 	// Use this for initialization
@@ -17,12 +18,18 @@ public class buttonController : MonoBehaviour {
 		DM = g.GetComponent<DictionaryMinigame> ();
 		scoreText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text>();
 		winText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Win").gameObject.GetComponent<Text>();
+		difficulty = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Difficulty").gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		scoreText.text = "Score: " + DM.getScore ().ToString();
 		winText.text = "Win: " + DM.getWL ().ToString();
+	}
+
+	public void onChanged(){
+		DM.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
+		difficulty.text = DM.getDiff ().ToString();
 	}
 
 	public void onClickHandler(){

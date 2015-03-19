@@ -14,6 +14,11 @@ public class spawnControllerScript : MonoBehaviour {
 	Text GUINumberMissileRemaining;
 	Text scoreText;
 
+	//
+	float enemyMissileSpeed;
+	float friendlyMissileSpeed;
+	float clusterChance;
+
 	// Use this for initialization
 	void Start () {
 		//setup difficulty
@@ -23,24 +28,54 @@ public class spawnControllerScript : MonoBehaviour {
 
 		if (difficulty == 1) {
 			missilesRemaining = 15;
+			enemyMissileSpeed = 0.020f;
+			friendlyMissileSpeed = 0.2f;
+			clusterChance = 0.0f;
 		} else if (difficulty == 2) {
 			missilesRemaining = 15;
+			enemyMissileSpeed = 0.025f;
+			friendlyMissileSpeed = 0.2f;
+			clusterChance = 0.0001f;
 		} else if (difficulty == 3) {
 			missilesRemaining = 15;
+			enemyMissileSpeed = 0.025f;
+			friendlyMissileSpeed = 0.15f;
+			clusterChance = 0.0005f;
 		} else if (difficulty == 4) {
 			missilesRemaining = 25;
+			enemyMissileSpeed = 0.025f;
+			friendlyMissileSpeed = 0.175f;
+			clusterChance = 0.0075f;
 		} else if (difficulty == 5) {
 			missilesRemaining = 25;
+			enemyMissileSpeed = 0.025f;
+			friendlyMissileSpeed = 0.1f;
+			clusterChance = 0.001f;
 		} else if (difficulty == 6) {
 			missilesRemaining = 25;
+			enemyMissileSpeed = 0.0275f;
+			friendlyMissileSpeed = 0.1f;
+			clusterChance = 0.001f;
 		} else if (difficulty == 7) {
 			missilesRemaining = 30;
+			enemyMissileSpeed = 0.03f;
+			friendlyMissileSpeed = 0.1f;
+			clusterChance = 0.005f;
 		} else if (difficulty == 8) {
 			missilesRemaining = 30;
+			enemyMissileSpeed = 0.0325f;
+			friendlyMissileSpeed = 0.075f;
+			clusterChance = 0.006f;
 		} else if (difficulty == 9) {
 			missilesRemaining = 30;
+			enemyMissileSpeed = 0.035f;
+			friendlyMissileSpeed = 0.085f;
+			clusterChance = 0.0075f;
 		} else {
 			missilesRemaining = 35;
+			enemyMissileSpeed = 0.04f;
+			friendlyMissileSpeed = 0.1f;
+			clusterChance = 0.008f;
 		}
 
 		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
@@ -70,7 +105,7 @@ public class spawnControllerScript : MonoBehaviour {
 				missileScript m = newMissile.GetComponentInChildren<missileScript>();//.target = new Vector3(1,0,0);
 
 				m.target = targetPos;
-				m.speed = 0.1f;
+				m.speed = friendlyMissileSpeed;
 				m.clusterChance = -1.0f;
 				//print(m.target.x + "," + m.target.y);
 				newMissile.tag = "friendlyMissile";
@@ -209,8 +244,8 @@ public class spawnControllerScript : MonoBehaviour {
 				m.target = target.transform.position;
 
 
-				m.speed = 0.025f;
-				m.clusterChance = 0.001f;
+				m.speed = enemyMissileSpeed;
+				m.clusterChance = clusterChance;
 				newMissile.tag = "enemyMissile";
 				missilesRemaining -= 1;
 			}
