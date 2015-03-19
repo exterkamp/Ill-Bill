@@ -1,13 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\missileScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\FlappyBird\Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="249" Column="36" />
-      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\missileScript.cs" Line="58" Column="40" />
-      <File FileName="Assets\Scripts\explosionScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SiloController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\buttonController.cs" Line="1" Column="1" />
+      <File FileName="..\FlappyBird\Assets\Scripts\DestroyObstacle.cs" Line="6" Column="32" />
+      <File FileName="..\FlappyBird\Assets\Scripts\DestroyBG.cs" Line="5" Column="2" />
+      <File FileName="..\FlappyBird\Assets\Scripts\Obstacle.cs" Line="26" Column="3" />
+      <File FileName="..\FlappyBird\Assets\Scripts\GameManager.cs" Line="56" Column="49" />
+      <File FileName="..\FlappyBird\Assets\Scripts\Player.cs" Line="24" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
