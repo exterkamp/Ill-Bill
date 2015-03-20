@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour {
 		
 		while(true){
 			Instantiate(backgrounds);
-			yield return new WaitForSeconds(9.7f);
+			yield return new WaitForSeconds(3f);
 
 			if (gameOver)
 				break;

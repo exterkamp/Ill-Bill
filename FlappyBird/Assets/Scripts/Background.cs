@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class Background : MonoBehaviour {
-	public Vector2 velocity = new Vector2(-2, 0);
+	public float speed = 0.1f;
 	private GameManager gameController;
 	// Use this for initialization
 	void Start() {
-		GetComponent<Rigidbody2D>().velocity = velocity;
+		//GetComponent<Rigidbody2D>().velocity = velocity;
 
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
@@ -20,8 +20,8 @@ public class Background : MonoBehaviour {
 	}
 
 	void Update(){
-		if (gameController.gameOver==true) {
-			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+		if (gameController.gameOver!=true) {
+			transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
 		}
 	}
 
