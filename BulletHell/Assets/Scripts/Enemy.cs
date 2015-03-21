@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour {
 			explosion.transform.position = gameObject.transform.position;
 			Destroy (gameObject);
 			Destroy (other.gameObject);
+			GameManager.incScore ();
 		} else if (other.CompareTag ("Player")) {
 			GameObject explosion = Instantiate (Explosion) as GameObject;
 			explosion.transform.position = other.gameObject.transform.position;
