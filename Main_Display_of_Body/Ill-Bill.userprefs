@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BodyMapController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BodyMapController.cs" Line="16" Column="25" />
+      <File FileName="Assets\Scripts\buttonControllerMissile.cs" Line="25" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
