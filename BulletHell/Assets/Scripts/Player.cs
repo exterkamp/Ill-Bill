@@ -5,8 +5,10 @@ public class Player : MonoBehaviour {
 
 	public float speed;
 	public Boundary boundary;
-	public GameObject shot;
+	public Rigidbody2D shot;
+	public GameObject Explosion;
 	public float fireRate;
+	public float shotSpeed;
 	private Rigidbody2D player;
 	private float nextFire;
 	
@@ -17,7 +19,8 @@ public class Player : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			Instantiate(shot);
+			Rigidbody2D shotInstance =  (Rigidbody2D) Instantiate(shot, new Vector3(transform.position.x+1, transform.position.y), new Quaternion(0,0,180,0));
+			shotInstance.velocity = new Vector3(shotSpeed,0);
 		}
 	}
 
@@ -34,5 +37,21 @@ public class Player : MonoBehaviour {
 			Mathf.Clamp (player.position.y, boundary.yMin, boundary.yMax),
 			0.0f
 		);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.CompareTag ("EnemyShot")) {
+			GameObject explosion = Instantiate (Explosion) as GameObject;
+			explosion.transform.position = gameObject.transform.position;
+			Destroy (gameObject);
+			Destroy (other.gameObject);
+			GameManager.endGame ();
+		} else if (other.CompareTag ("Enemy")) {
+			GameObject explosion = Instantiate (Explosion) as GameObject;
+			explosion.transform.position = other.gameObject.transform.position;
+			Destroy (gameObject);
+			Destroy (other.gameObject);
+			GameManager.endGame();
+		}
 	}
 }
