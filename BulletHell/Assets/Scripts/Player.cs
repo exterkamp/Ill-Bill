@@ -3,30 +3,55 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public float speed = 0.1f;
-
+	public float speed;
+	public Boundary boundary;
+	public Rigidbody2D shot;
+	public GameObject Explosion;
+	public float fireRate;
+	public float shotSpeed;
 	private Rigidbody2D player;
-	private Vector2 vertical;
-	private Vector2 horizontal;
-
-	// Use this for initialization
-	void Start () {
-		player = GetComponent<Rigidbody2D> ();
-		vertical = new Vector2 (0, speed);
-		horizontal = new Vector2 (speed, 0);
-	}
+	private float nextFire;
 	
-	// Update is called once per frame
+	void Start() {
+		player = GetComponent<Rigidbody2D> ();
+	}
+
 	void Update () {
-		Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-		if (Input.GetKey ("up") && screenPosition.y < 580) {
-			player.MovePosition (player.position + vertical);
-		} else if (Input.GetKey ("down") && screenPosition.y > 25) {
-			player.MovePosition(player.position - vertical);
-		} else if (Input.GetKey ("right") && screenPosition.x < 500) {
-			player.MovePosition(player.position + horizontal);
-		} else if (Input.GetKey ("left") && screenPosition.x > 25) {
-			player.MovePosition(player.position - horizontal);
+		if (Input.GetButton("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			Rigidbody2D shotInstance =  (Rigidbody2D) Instantiate(shot, new Vector3(transform.position.x+1, transform.position.y), new Quaternion(0,0,180,0));
+			shotInstance.velocity = new Vector3(shotSpeed,0);
+		}
+	}
+
+	void FixedUpdate() {
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+	
+		Vector3 movement = new Vector3 (moveHorizontal, moveVertical);
+		player.velocity = movement * speed;
+	
+		player.position = new Vector3 
+		(
+			Mathf.Clamp (player.position.x, boundary.xMin, boundary.xMax), 
+			Mathf.Clamp (player.position.y, boundary.yMin, boundary.yMax),
+			0.0f
+		);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.CompareTag ("EnemyShot")) {
+			GameObject explosion = Instantiate (Explosion) as GameObject;
+			explosion.transform.position = gameObject.transform.position;
+			Destroy (gameObject);
+			Destroy (other.gameObject);
+			GameManager.endGame ();
+		} else if (other.CompareTag ("Enemy")) {
+			GameObject explosion = Instantiate (Explosion) as GameObject;
+			explosion.transform.position = other.gameObject.transform.position;
+			Destroy (gameObject);
+			Destroy (other.gameObject);
+			GameManager.endGame();
 		}
 	}
 }
