@@ -2,20 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class buttonController : MonoBehaviour {
-
+public class buttonControllerMissile : MonoBehaviour {
+	
 	Text scoreText;
 	Text winText;
 	Text difficulty;
-	DictionaryMinigame DM;
-
+	
 	// Use this for initialization
 	void Start () {
 		if (GameObject.FindGameObjectsWithTag("dictionary_minigame").Length == 0)
 			Instantiate(Resources.Load("MinigameInfoDictionary"));
-
-		GameObject g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
-		DM = g.GetComponent<DictionaryMinigame> ();
+		
+		//GameObject g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
+		//DM = g.GetComponent<DictionaryMinigame> ();
 		scoreText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text>();
 		winText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Win").gameObject.GetComponent<Text>();
 		difficulty = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Difficulty").gameObject.GetComponent<Text>();
@@ -23,18 +22,18 @@ public class buttonController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = "Score: " + DM.getScore ().ToString();
-		winText.text = "Win: " + DM.getWL ().ToString();
+		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString();
+		winText.text = "Win: " + DictionaryMinigame.instance.getWL ().ToString();
 	}
-
+	
 	public void onChanged(){
-		DM.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
-		difficulty.text = DM.getDiff ().ToString();
+		DictionaryMinigame.instance.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
+		difficulty.text = DictionaryMinigame.instance.getDiff ().ToString();
 	}
-
+	
 	public void onClickHandler(){
-		DM.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
-		print (DM.getDiff());
+		DictionaryMinigame.instance.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
+		print (DictionaryMinigame.instance.getDiff());
 		Application.LoadLevel ("missileCommandMain");
 	}
 }

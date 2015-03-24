@@ -48,9 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\DictionaryMinigame.cs" />
      <Compile Include="Assets\Scripts\SiloController.cs" />
-     <Compile Include="Assets\Scripts\buttonController.cs" />
+     <Compile Include="Assets\Scripts\buttonControllerMissile.cs" />
      <Compile Include="Assets\Scripts\explosionScript.cs" />
-     <Compile Include="Assets\Scripts\missileCollector.cs" />
      <Compile Include="Assets\Scripts\missileScript.cs" />
      <Compile Include="Assets\Scripts\spawnControllerScript.cs" />
  <Reference Include="UnityEngine.UI">
