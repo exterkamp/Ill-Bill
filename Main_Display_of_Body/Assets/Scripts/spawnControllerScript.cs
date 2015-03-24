@@ -132,10 +132,18 @@ public class spawnControllerScript : MonoBehaviour {
 			//calculate final score for cities
 			incScore(checkFinalCityScores());
 
-			Application.LoadLevel("splashMenu");
+			LoadMenu();
+			//Application.LoadLevel("splashMenu");
+			//Application.LoadLevel (Application.loadedLevel);
 			
 		}
 
+	}
+
+	void LoadMenu(){
+		//FD.setAttempts(3);
+		//Destroy(FD.gameObject);
+		Application.LoadLevel("BodyMap");
 	}
 
 	public void incScore(int scoreInc){

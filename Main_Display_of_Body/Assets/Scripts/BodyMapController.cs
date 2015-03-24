@@ -7,22 +7,27 @@ public class BodyMapController : MonoBehaviour {
 	public int losses;
 	public int score;
 
-	// Use this for initialization
-	void Awake () {
+	void Start(){
 		if (instance == null) {
 			instance = this;
-			DontDestroyOnLoad (gameObject);
+			DontDestroyOnLoad (this.gameObject);
 		} else if(instance != this){
-			Destroy (gameObject);
+			Destroy (this.gameObject);
 		}
+	}
 
-		if (DictionaryMinigame.instance.getWL ()) {
-			instance.wins++;
-		} 
-		else {
-			instance.losses++;
+	// Use this for initialization
+	void Awake () {
+
+		if (instance != null) {
+			if (DictionaryMinigame.instance.getWL ()) {
+				instance.wins++;
+			} else {
+				instance.losses++;
+			}
+		
+			instance.score += DictionaryMinigame.instance.getScore ();
 		}
-		instance.score += DictionaryMinigame.instance.getScore ();
 	}
 	
 	void OnGUI(){
