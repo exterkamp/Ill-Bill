@@ -3,19 +3,23 @@ using System.Collections;
 
 public class EnemyShooter : MonoBehaviour {
 	
-	public float speed;
+	public float minSpeed;
+	public float maxSpeed;
 	public Boundary boundary;
 	public GameObject Explosion;
 	public Rigidbody2D shot;
-	public float fireRate;
+	public float minFireRate;
+	public float maxFireRate;
 	public float shotSpeed;
 	private Rigidbody2D enemy;
+	private float fireRate;
 	
 	// Use this for initialization
 	void Start () {
 		enemy = GetComponent<Rigidbody2D> ();
 		enemy.position = new Vector3 (Random.Range (boundary.xMin, boundary.xMax), Random.Range (boundary.yMin, boundary.yMax));
-		enemy.velocity = new Vector3 (-speed, 0);
+		enemy.velocity = new Vector3 (-Random.Range (minSpeed, maxSpeed), 0);
+		fireRate = Random.Range (minFireRate, maxFireRate);
 		StartCoroutine (FireShots());
 	}
 

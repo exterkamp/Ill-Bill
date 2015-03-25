@@ -19,9 +19,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		#if UNITY_EDITOR
 		if (Input.GetButton("Fire1") && Time.time > nextFire) {
-			nextFire = Time.time + fireRate;
-			Rigidbody2D shotInstance =  (Rigidbody2D) Instantiate(shot, new Vector3(transform.position.x+1, transform.position.y), new Quaternion(0,0,180,0));
-			shotInstance.velocity = new Vector3(shotSpeed,0);
+			Fire ();
 		}
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");

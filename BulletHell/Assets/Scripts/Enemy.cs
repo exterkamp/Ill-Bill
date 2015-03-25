@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	public float speed;
+	public float minSpeed;
+	public float maxSpeed;
 	public Boundary boundary;
 	public GameObject Explosion;
 	private Rigidbody2D enemy;
@@ -12,7 +13,7 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		enemy = GetComponent<Rigidbody2D> ();
 		enemy.position = new Vector3 (Random.Range (boundary.xMin, boundary.xMax), Random.Range (boundary.yMin, boundary.yMax));
-		enemy.velocity = new Vector3 (-speed, 0);
+		enemy.velocity = new Vector3 (-Random.Range (minSpeed, maxSpeed), 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
