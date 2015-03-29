@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	public float minSpeed;
-	public float maxSpeed;
 	public Boundary boundary;
 	public GameObject Explosion;
 	private Rigidbody2D enemy;
+	private static float minSpeed;
+	private static float maxSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,13 @@ public class Enemy : MonoBehaviour {
 			explosion.transform.position = gameObject.transform.position;
 			Destroy (gameObject);
 			Destroy (other.gameObject);
-			GameManager.incScore ();
+			DictionaryMinigame.instance.incScore (1);
+			GameManager.editSpawnRate ();
 		}
+	}
+
+	public static void setSpeed(float min, float max) {
+		minSpeed = min;
+		maxSpeed = max;
 	}
 }

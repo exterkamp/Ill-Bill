@@ -2,17 +2,17 @@
 using System.Collections;
 
 public class EnemyShooter : MonoBehaviour {
-	
-	public float minSpeed;
-	public float maxSpeed;
+
 	public Boundary boundary;
 	public GameObject Explosion;
 	public Rigidbody2D shot;
-	public float minFireRate;
-	public float maxFireRate;
-	public float shotSpeed;
 	private Rigidbody2D enemy;
 	private float fireRate;
+	private static float minSpeed;
+	private static float maxSpeed;
+	private static float minFireRate;
+	private static float maxFireRate;
+	private static float shotSpeed;
 	
 	// Use this for initialization
 	void Start () {
@@ -37,7 +37,22 @@ public class EnemyShooter : MonoBehaviour {
 			explosion.transform.position = gameObject.transform.position;
 			Destroy (gameObject);
 			Destroy (other.gameObject);
-			GameManager.incScore ();
+			DictionaryMinigame.instance.incScore (2);
+			GameManager.editSpawnRate ();
 		}
+	}
+
+	public static void setSpeed(float min, float max) {
+		minSpeed = min;
+		maxSpeed = max;
+	}
+
+	public static void setFireRate(float min, float max) {
+		minFireRate = min;
+		maxFireRate = max;
+	}
+
+	public static void setFireSpeed(float speed) {
+		shotSpeed = speed;
 	}
 }
