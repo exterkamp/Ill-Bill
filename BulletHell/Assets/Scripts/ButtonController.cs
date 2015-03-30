@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour {
 	public GameObject dictionary;
 	public int goal;
 	Text scoreText;
+	Text goalText;
 	Text winText;
 	Text diffText;
 
@@ -15,14 +16,16 @@ public class ButtonController : MonoBehaviour {
 		if (GameObject.FindGameObjectsWithTag("dictionary_minigame").Length == 0)
 			Instantiate(dictionary);
 
-		scoreText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text>();
-		winText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Win").gameObject.GetComponent<Text>();
-		diffText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Difficulty").gameObject.GetComponent<Text>();
+		scoreText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text> ();
+		goalText = (Text)Camera.main.transform.FindChild ("Canvas").transform.FindChild ("Goal").gameObject.GetComponent<Text> ();
+		winText = (Text)Camera.main.transform.FindChild("Canvas").transform.FindChild("Win").gameObject.GetComponent<Text> ();
+		diffText = (Text)Camera.main.transform.FindChild ("Canvas").transform.FindChild ("Difficulty").gameObject.GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString();
+		goalText.text = "Goal: " + DictionaryMinigame.instance.getGoal ().ToString ();
 		winText.text = "Win: " + DictionaryMinigame.instance.getWL ().ToString();
 	}
 

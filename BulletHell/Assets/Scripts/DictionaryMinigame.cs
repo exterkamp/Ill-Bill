@@ -19,6 +19,7 @@ public class DictionaryMinigame : MonoBehaviour {
 		}
 		instance.difficulty = 1;
 		instance.score = 0;
+		instance.goal = 25;
 		instance.winLose = false;
 	}
 	
