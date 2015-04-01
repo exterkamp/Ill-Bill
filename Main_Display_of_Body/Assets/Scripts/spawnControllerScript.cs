@@ -26,6 +26,9 @@ public class spawnControllerScript : MonoBehaviour {
 		//setup difficulty
 		GameObject g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
 		DictionaryMinigame DM = g.GetComponent<DictionaryMinigame> ();
+
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 		int difficulty = DM.getDiff ();
 
 		if (difficulty == 1) {

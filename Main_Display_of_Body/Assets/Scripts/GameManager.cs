@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
 		if (GameObject.FindGameObjectsWithTag("dictionary_flappy").Length == 0)
 			Instantiate(FlappyDictionary);
 
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 		g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
 		DM = g.GetComponent<DictionaryMinigame> ();
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour {
 		gameOverText.text = "";
 		StartCoroutine (CreateObstacle ());
 		StartCoroutine (CreateBackground ());
+
 	}
 
 

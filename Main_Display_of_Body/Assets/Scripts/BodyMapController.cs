@@ -14,6 +14,7 @@ public class BodyMapController : MonoBehaviour {
 		} else if(instance != this){
 			Destroy (this.gameObject);
 		}
+
 	}
 
 	// Use this for initialization

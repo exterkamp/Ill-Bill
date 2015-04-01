@@ -1,13 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BodyMapController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MinigameSelect.cs">
     <Files>
-      <File FileName="Assets\Scripts\BodyMapController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SiloController.cs" Line="35" Column="85" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="38" Column="22" />
-      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="145" Column="5" />
-      <File FileName="Assets\Scripts\FlappyDictionary.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BodyMapController.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\ButtonController.cs" Line="20" Column="3" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="48" Column="56" />
+      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="30" Column="56" />
+      <File FileName="Assets\Scripts\MinigameSelect.cs" Line="13" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
