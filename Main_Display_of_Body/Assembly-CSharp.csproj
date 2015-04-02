@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\missileCollector.cs" />
      <Compile Include="Assets\Scripts\missileScript.cs" />
      <Compile Include="Assets\Scripts\spawnControllerScript.cs" />
+     <Compile Include="Assets\markerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
