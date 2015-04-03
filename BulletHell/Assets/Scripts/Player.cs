@@ -34,39 +34,14 @@ public class Player : MonoBehaviour {
 				0.0f
 				);
 		#elif UNITY_ANDROID
-		if (Input.touchCount == 1) {
-			Touch myTouch = Input.touches[0];
+		for (int i = 0; i < Input.touchCount; i++) {
+			Touch myTouch = Input.touches[i];
 			Vector3 touchLoc = Camera.main.ScreenToWorldPoint(myTouch.position);
 			if (touchLoc.x >= -9 && touchLoc.x <= -6) {
 				player.transform.position = Vector3.MoveTowards (player.transform.position, new Vector3
-					(
-						Mathf.Clamp (touchLoc.x, boundary.xMin, boundary.xMax), 
-						Mathf.Clamp (touchLoc.y, boundary.yMin, boundary.yMax),
-						0.0f
-						), Time.deltaTime * speed);
-			} else {
-				Fire ();
-			}
-		} else if (Input.touchCount > 1) {
-			Touch myTouch1 = Input.touches[0];
-			Touch myTouch2 = Input.touches[1];
-			Vector3 touchLoc1 = Camera.main.ScreenToWorldPoint(myTouch1.position);
-			Vector3 touchLoc2 = Camera.main.ScreenToWorldPoint(myTouch2.position);
-			if (touchLoc1.x >= -9 && touchLoc1.x <= -6) {
-				player.transform.position = Vector3.MoveTowards (player.transform.position, new Vector3
-				                     (
-					Mathf.Clamp (touchLoc1.x, boundary.xMin, boundary.xMax), 
-					Mathf.Clamp (touchLoc1.y, boundary.yMin, boundary.yMax),
-					0.0f
-					), Time.deltaTime * speed);
-			} else {
-				Fire();
-			}
-			if (touchLoc2.x >= -9 && touchLoc2.x <= -6) {
-				player.transform.position = Vector3.MoveTowards (player.transform.position, new Vector3
-				                     (
-					Mathf.Clamp (touchLoc2.x, boundary.xMin, boundary.xMax), 
-					Mathf.Clamp (touchLoc2.y, boundary.yMin, boundary.yMax),
+				                                                 (
+					Mathf.Clamp (touchLoc.x, boundary.xMin, boundary.xMax), 
+					Mathf.Clamp (touchLoc.y, boundary.yMin, boundary.yMax),
 					0.0f
 					), Time.deltaTime * speed);
 			} else {
