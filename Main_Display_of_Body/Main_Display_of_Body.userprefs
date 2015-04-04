@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\markerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\markerScript.cs" Line="31" Column="6" />
-      <File FileName="Assets\Scripts\MinigameSelect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\explosionScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\markerScript.cs" Line="33" Column="36" />
+      <File FileName="Assets\cameraLerper.cs" Line="30" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

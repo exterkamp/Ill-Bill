@@ -4,12 +4,12 @@ using System.Collections;
 public class markerScript : MonoBehaviour {
 
 	private Camera cam;
-	private Vector3 velocity = Vector3.zero;
-	private float startTime;
-	private float journeyLength;
-	private float speed;// = 0.1f;
-	private Vector3 startMarker;
-	private Vector3 endMarker;
+	//private Vector3 velocity = Vector3.zero;
+	//private float startTime;
+	//private float journeyLength;
+	//private float speed;// = 0.1f;
+	//private Vector3 startMarker;
+	//private Vector3 endMarker;
 
 	public bool selected = false;
 	public bool highlighted = false;
@@ -20,14 +20,16 @@ public class markerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cam = Camera.main;
-		speed = 0.1f;
+		//speed = 0.1f;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		if (Input.GetMouseButtonDown (0) && !highlighted) {
+	void Update () {
+
+		if (Input.GetMouseButtonDown (0) && !highlighted && selected) {
 			transform.localScale  = new Vector3(1F, 1F, 1F);
 			selected = false;
+			cam.GetComponent<cameraLerper> ().goHome(0.3f);
 			//StartCoroutine (ReturnCam (startMarker,endMarker,1f));
 		}
 
@@ -41,7 +43,7 @@ public class markerScript : MonoBehaviour {
 
 	}
 
-	IEnumerator ReturnCam(Vector3 source, float overTime)
+	/*IEnumerator ReturnCam(Vector3 source, float overTime)
 	{
 		Vector3 target = new Vector3 (0f,0f,-10f);
 		float startTime = Time.time;
@@ -70,7 +72,7 @@ public class markerScript : MonoBehaviour {
 		} else {
 			yield break;
 		}
-	}
+	}*/
 	
 	
 	
@@ -86,12 +88,11 @@ public class markerScript : MonoBehaviour {
 		selected = true;
 		highlighted = true;
 		transform.localScale  = new Vector3(1.25F, 1.25F, 1.25F);
-		startTime = Time.time;
-		//journeyLength = 5f;//Vector3.Distance(transform.position, cam.transform.position);
-		startMarker = cam.transform.position;
-		endMarker = transform.position;
-		endMarker.z = -10f;
-		StartCoroutine (MoveObject (startMarker,endMarker,1f));
+
+		cam.GetComponent<cameraLerper> ().moveTo (transform.position, 0.5f);
+
+
+		//StartCoroutine (MoveObject (startMarker,endMarker,1f));
 	}
 
 	void OnMouseExit(){
