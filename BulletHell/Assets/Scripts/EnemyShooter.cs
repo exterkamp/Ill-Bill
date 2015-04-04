@@ -8,6 +8,7 @@ public class EnemyShooter : MonoBehaviour {
 	public Rigidbody2D shot;
 	private Rigidbody2D enemy;
 	private float fireRate;
+	private float speed;
 	private static float minSpeed;
 	private static float maxSpeed;
 	private static float minFireRate;
@@ -18,7 +19,8 @@ public class EnemyShooter : MonoBehaviour {
 	void Start () {
 		enemy = GetComponent<Rigidbody2D> ();
 		enemy.position = new Vector3 (Random.Range (boundary.xMin, boundary.xMax), Random.Range (boundary.yMin, boundary.yMax));
-		enemy.velocity = new Vector3 (-Random.Range (minSpeed, maxSpeed), 0);
+		speed = Random.Range (minSpeed, maxSpeed);
+		enemy.velocity = new Vector3 (-speed, 0);
 		fireRate = Random.Range (minFireRate, maxFireRate);
 		StartCoroutine (FireShots());
 	}
@@ -32,7 +34,7 @@ public class EnemyShooter : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag ("Shot")) {
+		if (other.CompareTag ("Shot") && enemy.position.x < 8.5f) {
 			GameObject explosion = Instantiate (Explosion) as GameObject;
 			explosion.transform.position = gameObject.transform.position;
 			Destroy (gameObject);
@@ -54,5 +56,13 @@ public class EnemyShooter : MonoBehaviour {
 
 	public static void setFireSpeed(float speed) {
 		shotSpeed = speed;
+	}
+
+	public static float getMinSpeed() {
+		return minSpeed;
+	}
+
+	public static float getMaxSpeed() {
+		return maxSpeed;
 	}
 }
