@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\markerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\markerScript.cs" Line="92" Column="1" />
-      <File FileName="Assets\cameraLerper.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\theGeneralScript.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\markerScript.cs" Line="82" Column="3" />
+      <File FileName="Assets\Scripts\cameraLerper.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

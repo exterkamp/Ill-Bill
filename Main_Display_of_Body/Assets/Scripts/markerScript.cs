@@ -76,9 +76,12 @@ public class markerScript : MonoBehaviour {
 	
 	
 	
-	/*void OnMouseEnter() {
-		highlighted = true;
-	}*/
+	void OnMouseEnter() {
+		if (selected) {
+			highlighted = true;
+		}
+	
+	}
 
 	void OnMouseDown() {
 		//check if hit for a second time, if it is launch minigame!
