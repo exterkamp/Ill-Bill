@@ -11,10 +11,14 @@ public class markerScript : MonoBehaviour {
 	//private Vector3 startMarker;
 	//private Vector3 endMarker;
 
+	public string scene;
+	public string injury;
+	public string minigame;
+	public int difficulty;
+
+
 	public bool selected = false;
 	public bool highlighted = false;
-
-	public string minigame;
 
 
 	// Use this for initialization
@@ -86,13 +90,16 @@ public class markerScript : MonoBehaviour {
 	void OnMouseDown() {
 		//check if hit for a second time, if it is launch minigame!
 		if (highlighted) {
-			Application.LoadLevel (minigame);
+			//Application.LoadLevel (minigame);
+			GameObject.FindGameObjectWithTag ("GUI_general").GetComponent<theGeneralScript>().displayGUI(scene,injury,minigame,difficulty);
 		}
 		selected = true;
 		highlighted = true;
 		transform.localScale  = new Vector3(1.25F, 1.25F, 1.25F);
 
-		cam.GetComponent<cameraLerper> ().moveTo (transform.position, 0.5f);
+		Vector3 target = transform.position;
+
+		cam.GetComponent<cameraLerper> ().moveTo (target, 0.5f);
 
 
 		//StartCoroutine (MoveObject (startMarker,endMarker,1f));

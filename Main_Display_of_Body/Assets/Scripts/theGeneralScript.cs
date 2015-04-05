@@ -3,7 +3,6 @@ using System.Collections;
 
 public class theGeneralScript : MonoBehaviour {
 
-	public GameObject button;
 
 	// Use this for initialization
 	void Start () {
@@ -13,5 +12,11 @@ public class theGeneralScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void displayGUI(string scene, string injury, string minigame, int difficulty){
+		//spawn a GUI element
+		print ("Output: " + scene + ", " + injury + ", " + minigame + ", " + difficulty);
+
 	}
 }
