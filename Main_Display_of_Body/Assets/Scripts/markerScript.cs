@@ -15,6 +15,10 @@ public class markerScript : MonoBehaviour {
 	public bool highlighted = false;
 
 	public string minigame;
+	public string injury;
+	public string minigameText;
+	public string difficulty;
+
 
 
 	// Use this for initialization
@@ -26,12 +30,13 @@ public class markerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonDown (0) && !highlighted && selected) {
-			transform.localScale  = new Vector3(1F, 1F, 1F);
+		/*if (Input.GetMouseButtonDown (0) && !highlighted && selected) {
+			//transform.localScale  = new Vector3(1F, 1F, 1F);
 			selected = false;
-			cam.GetComponent<cameraLerper> ().goHome(0.3f);
+			//cam.GetComponent<cameraLerper> ().goHome(0.3f);
+			//GameObject.FindGameObjectWithTag("theGeneral").GetComponent<theGeneralScript>().noGUI();
 			//StartCoroutine (ReturnCam (startMarker,endMarker,1f));
-		}
+		}*/
 
 		/*if (selected) {
 			float distCovered = (Time.time - startTime);
@@ -76,21 +81,24 @@ public class markerScript : MonoBehaviour {
 	
 	
 	
-	void OnMouseEnter() {
-		if (selected) {
-			highlighted = true;
-		}
+	//void OnMouseEnter() {
+	//	if (selected) {
+	//		highlighted = true;
+	//	}
 	
-	}
+	//}
+
 
 	void OnMouseDown() {
 		//check if hit for a second time, if it is launch minigame!
-		if (highlighted) {
-			Application.LoadLevel (minigame);
-		}
-		selected = true;
-		highlighted = true;
-		transform.localScale  = new Vector3(1.25F, 1.25F, 1.25F);
+		//if (highlighted) {
+			//Application.LoadLevel (minigame);
+
+		//}
+		GameObject.FindGameObjectWithTag("theGeneral").GetComponent<theGeneralScript>().showGUI(minigame,injury,minigameText,difficulty);
+		//selected = true;
+		//highlighted = true;
+		//transform.localScale  = new Vector3(1.25F, 1.25F, 1.25F);
 
 		cam.GetComponent<cameraLerper> ().moveTo (transform.position, 0.5f);
 
@@ -98,8 +106,8 @@ public class markerScript : MonoBehaviour {
 		//StartCoroutine (MoveObject (startMarker,endMarker,1f));
 	}
 
-	void OnMouseExit(){
-		highlighted = false;
-	}
+	//void OnMouseExit(){
+	//	highlighted = false;
+	//}
 
 }
