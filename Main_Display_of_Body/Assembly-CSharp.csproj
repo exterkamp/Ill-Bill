@@ -62,10 +62,11 @@
      <Compile Include="Assets\Scripts\SiloController.cs" />
      <Compile Include="Assets\Scripts\buttonControllerMissile.cs" />
      <Compile Include="Assets\Scripts\explosionScript.cs" />
+     <Compile Include="Assets\Scripts\mapGraphController.cs" />
+     <Compile Include="Assets\Scripts\markerScript.cs" />
      <Compile Include="Assets\Scripts\missileCollector.cs" />
      <Compile Include="Assets\Scripts\missileScript.cs" />
      <Compile Include="Assets\Scripts\spawnControllerScript.cs" />
-     <Compile Include="Assets\markerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

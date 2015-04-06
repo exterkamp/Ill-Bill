@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BodyMapController : MonoBehaviour {
 	public static BodyMapController instance;
+	public mapGraphController mapControl;
 	public int wins;
 	public int losses;
 	public int score;
@@ -23,10 +24,12 @@ public class BodyMapController : MonoBehaviour {
 		if (instance != null) {
 			if (DictionaryMinigame.instance.getWL ()) {
 				instance.wins++;
+				//delete the last marker clicked
 			} else {
 				instance.losses++;
+				//increase diff of last markerScript clicked
 			}
-		
+			mapControl.generate();
 			instance.score += DictionaryMinigame.instance.getScore ();
 		}
 	}
