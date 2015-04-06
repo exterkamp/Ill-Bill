@@ -1,4 +1,5 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BodyMapController.cs">
     <Files>
@@ -6,6 +7,14 @@
       <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="273" Column="4" />
       <File FileName="Assets\Scripts\BodyMapController.cs" Line="32" Column="26" />
       <File FileName="Assets\Scripts\mapGraphController.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\markerScript.cs">
+    <Files>
+      <File FileName="Assets\Scripts\theGeneralScript.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\markerScript.cs" Line="82" Column="3" />
+      <File FileName="Assets\Scripts\cameraLerper.cs" Line="1" Column="1" />
+>>>>>>> 93fbdfdd6296d64e69e5a6aad0d9554a9011a4a6
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

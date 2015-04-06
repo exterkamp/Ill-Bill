@@ -3,7 +3,7 @@
 public class Player : MonoBehaviour {
 	// The force which is added when the player jumps
 	// This can be changed in the Inspector window
-	public Vector2 jumpForce = new Vector2(0, 300);
+	public Vector2 jumpForce = new Vector2(0, 325);
 	public int tilt;
 	private GameManager gameController;
 	private bool dead;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
+		jumpForce.y = gameController.playerJumpF;
 		// Jump
 		if (Input.GetMouseButtonDown(0) && !dead) {
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
