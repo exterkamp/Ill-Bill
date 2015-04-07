@@ -29,7 +29,7 @@ public class mapGraphController : MonoBehaviour {
 
 
 	public void generate(){
-		int bPindex = Random.Range (0, bodyPoints.Length-1);
+		int bPindex = Random.Range (0, bodyPoints.Length);
 		GameObject bP = bodyPoints[bPindex];
 		GameObject marker = null;
 		for (int i = 0; i < markers.Count; i++) {
@@ -45,7 +45,7 @@ public class mapGraphController : MonoBehaviour {
 			string levelText = levelString[levelIndex];
 			int diff = 1;
 			string[] bPTextFirst = bodyPointStrings[bPindex];
-			string bPText = bPTextFirst[Random.Range (0, bPTextFirst.Length-1)];
+			string bPText = bPTextFirst[Random.Range (0, bPTextFirst.Length)];
 			marker = (GameObject) Instantiate(markerPrefab, bP.transform.position, Quaternion.identity);
 			markerScript ms = marker.GetComponent<markerScript>();
 			ms.injury = bPText;

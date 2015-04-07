@@ -16,6 +16,11 @@ public class BodyMapController : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
+		//seed first points
+		int max = Random.Range (1, 3);
+		for (int i = 0; i <= max; i++) {
+			mapControl.generate ();
+		}
 	}
 
 	// Use this for initialization
