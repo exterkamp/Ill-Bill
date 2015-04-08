@@ -35,6 +35,9 @@ public class markerScript : MonoBehaviour {
 
 	void OnMouseDown() {
 		DictionaryGameState.instance.setCurrentMarker (ID);
+		string[] cur = DictionaryGameState.instance.getCurrent ();
+		int diff = System.Convert.ToInt32(cur[3]);
+		DictionaryMinigame.instance.setDiff (diff);
 		GameObject.FindGameObjectWithTag("theGeneral").GetComponent<theGeneralScript>().showGUI(minigame,injury,minigameText,difficulty);
 		cam.GetComponent<cameraLerper> ().moveTo (transform.position, 0.5f);
 	}

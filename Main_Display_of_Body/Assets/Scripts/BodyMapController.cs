@@ -13,7 +13,7 @@ public class BodyMapController : MonoBehaviour {
 			instance = this;
 			DontDestroyOnLoad (this.gameObject);
 			//seed first points
-			print ("seeding");
+			//print ("seeding");
 			int max = Random.Range (1, 3);
 			for (int i = 0; i <= max; i++) {
 				mapControl.generate ();
@@ -38,10 +38,18 @@ public class BodyMapController : MonoBehaviour {
 
 			} else {
 				instance.losses++;
+				string[] s = DictionaryGameState.instance.getCurrent();
+				int diff = System.Convert.ToInt32(s[3]);
+				if (diff != 10){
+					diff += 1;
+					s[3] = diff.ToString();
+				}
+
+
 				//increase diff of last markerScript clicked
 			}
 			//if (DictionaryGameState.instance.getMarkers() != null){
-			print ("making more and rendering");
+			//print ("making more and rendering");
 			//mapControl.renderExisting ();
 			mapControl.generate();
 			mapControl.renderExisting();
