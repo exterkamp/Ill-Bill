@@ -26,12 +26,29 @@ public class EnemyGroup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (enemy1rb2d != null && enemy2rb2d != null && enemy3rb2d != null && first) {
-			enemy1rb2d.position = position;
-			enemy1rb2d.velocity = velocity;
-			enemy2rb2d.position = new Vector3(position.x+0.5f, position.y+0.5f);
-			enemy2rb2d.velocity = velocity;
-			enemy3rb2d.position = new Vector3(position.x+0.5f, position.y-0.5f);
-			enemy3rb2d.velocity = velocity;
+			int formation = (int)Mathf.Floor (Random.Range (0,3));
+			if (formation == 0) {
+				enemy1rb2d.position = position;
+				enemy1rb2d.velocity = velocity;
+				enemy2rb2d.position = new Vector3(position.x+1f, position.y+1f);
+				enemy2rb2d.velocity = velocity;
+				enemy3rb2d.position = new Vector3(position.x+1f, position.y-1f);
+				enemy3rb2d.velocity = velocity;
+			} else if (formation == 1) {
+				enemy1rb2d.position = position;
+				enemy1rb2d.velocity = velocity;
+				enemy2rb2d.position = new Vector3(position.x-1f, position.y-1f);
+				enemy2rb2d.velocity = velocity;
+				enemy3rb2d.position = new Vector3(position.x+1f, position.y+1f);
+				enemy3rb2d.velocity = velocity;
+			} else {
+				enemy1rb2d.position = position;
+				enemy1rb2d.velocity = velocity;
+				enemy2rb2d.position = new Vector3(position.x-1f, position.y+1f);
+				enemy2rb2d.velocity = velocity;
+				enemy3rb2d.position = new Vector3(position.x+1f, position.y-1f);
+				enemy3rb2d.velocity = velocity;
+			}
 			first = false;
 		}
 	}

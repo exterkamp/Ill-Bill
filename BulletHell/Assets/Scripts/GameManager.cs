@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour {
 			break;
 		}
 		StartCoroutine (SpawnEnemyWaves ());
-		StartCoroutine (SpawnEnemyShooterWaves ());
+		//StartCoroutine (SpawnEnemyShooterWaves ());
 		StartCoroutine (SpawnEnemyGroupWaves ());
 	}
 
