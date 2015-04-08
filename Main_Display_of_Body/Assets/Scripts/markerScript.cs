@@ -11,17 +11,20 @@ public class markerScript : MonoBehaviour {
 	public string minigameText;
 	public int difficulty;
 	public GameObject bodyPoint;
+	public int bPindex;
+	public int ID;
 
 
 	void Start(){
 		cam = Camera.main;
 	}
 
-	public markerScript(int diff, string game, GameObject point){
+	public markerScript(int diff, string game, GameObject point, int ID){
 
 		this.difficulty = diff;
 		this.minigame = game;
 		this.bodyPoint = point;
+		this.ID = ID;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +34,7 @@ public class markerScript : MonoBehaviour {
 
 
 	void OnMouseDown() {
+		DictionaryGameState.instance.setCurrentMarker (ID);
 		GameObject.FindGameObjectWithTag("theGeneral").GetComponent<theGeneralScript>().showGUI(minigame,injury,minigameText,difficulty);
 		cam.GetComponent<cameraLerper> ().moveTo (transform.position, 0.5f);
 	}

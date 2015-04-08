@@ -12,15 +12,19 @@ public class BodyMapController : MonoBehaviour {
 		if (instance == null) {
 			instance = this;
 			DontDestroyOnLoad (this.gameObject);
+			//seed first points
+			print ("seeding");
+			int max = Random.Range (1, 3);
+			for (int i = 0; i <= max; i++) {
+				mapControl.generate ();
+			}
+			mapControl.renderExisting ();
 		} else if(instance != this){
 			Destroy (this.gameObject);
 		}
+		//mapControl.renderExisting ();
 
-		//seed first points
-		int max = Random.Range (1, 3);
-		for (int i = 0; i <= max; i++) {
-			mapControl.generate ();
-		}
+	
 	}
 
 	// Use this for initialization
@@ -30,11 +34,18 @@ public class BodyMapController : MonoBehaviour {
 			if (DictionaryMinigame.instance.getWL ()) {
 				instance.wins++;
 				//delete the last marker clicked
+				DictionaryGameState.instance.deleteCurrent();
+
 			} else {
 				instance.losses++;
 				//increase diff of last markerScript clicked
 			}
+			//if (DictionaryGameState.instance.getMarkers() != null){
+			print ("making more and rendering");
+			//mapControl.renderExisting ();
 			mapControl.generate();
+			mapControl.renderExisting();
+			//}
 			instance.score += DictionaryMinigame.instance.getScore ();
 		}
 	}
