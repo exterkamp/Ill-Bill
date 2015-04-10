@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
+      <File FileName="Assets/Scripts/Player.cs" Line="84" Column="40" />
       <File FileName="Assets/Scripts/EnemyGroup.cs" Line="29" Column="55" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ButtonController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="116" Column="5" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="22" Column="52" />
-      <File FileName="Assets/Scripts/EnemyShooter.cs" Line="37" Column="52" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="129" Column="3" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemyShooter.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/DictionaryMinigame.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

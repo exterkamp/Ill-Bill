@@ -9,17 +9,31 @@ public class Player : MonoBehaviour {
 	public GameObject Explosion;
 	public float fireRate;
 	public float shotSpeed;
+	public Sprite playerSprite;
+	public Sprite playerShootingSprite;
 	private Rigidbody2D player;
 	private float nextFire;
-	
+	private SpriteRenderer sprite;
+	private bool shooting;
+
 	void Start() {
 		player = GetComponent<Rigidbody2D> ();
+		sprite = GetComponent<SpriteRenderer> ();
+		sprite.sprite = playerSprite;
+		shooting = false;
 	}
 
 	void Update () {
 		#if UNITY_EDITOR
-		if (Input.GetButton("Fire1") && Time.time > nextFire) {
+		if (Input.GetButton ("Fire1")) {
+			shooting = true;
 			Fire ();
+		}
+		if (Input.GetButtonDown("Fire1")) {
+			sprite.sprite = playerShootingSprite;
+		} else if (Input.GetButtonUp ("Fire1")) {
+			StartCoroutine (shootAnimation ());
+			shooting = false;
 		}
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
@@ -45,7 +59,14 @@ public class Player : MonoBehaviour {
 					0.0f
 					), Time.deltaTime * speed);
 			} else {
+				shooting = true;
 				Fire ();
+				if (myTouch.phase == TouchPhase.Began) {
+					sprite.sprite = playerShootingSprite;
+				} else if (myTouch.phase == TouchPhase.Ended) {
+					StartCoroutine (shootAnimation ());
+					shooting = false;
+				}
 			}
 		}
 		#endif
@@ -56,6 +77,13 @@ public class Player : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			Rigidbody2D shotInstance =  (Rigidbody2D) Instantiate(shot, new Vector3(transform.position.x+1, transform.position.y), new Quaternion(0,0,180,0));
 			shotInstance.velocity = new Vector3(shotSpeed,0);
+		}
+	}
+
+	IEnumerator shootAnimation () {
+		yield return new WaitForSeconds (0.25f);
+		if (!shooting) {
+			sprite.sprite = playerSprite;
 		}
 	}
 
