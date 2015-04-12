@@ -39,6 +39,9 @@ public class DictionaryGameState : MonoBehaviour {
 					temp += 1;
 					old[3] = temp.ToString();
 				}
+				else{
+					//spread disease
+				}
 				add = false;
 			}
 		}

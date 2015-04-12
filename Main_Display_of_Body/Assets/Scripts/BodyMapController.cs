@@ -44,6 +44,9 @@ public class BodyMapController : MonoBehaviour {
 					diff += 1;
 					s[3] = diff.ToString();
 				}
+				else{
+					//spread disease
+				}
 
 
 				//increase diff of last markerScript clicked
@@ -57,10 +60,10 @@ public class BodyMapController : MonoBehaviour {
 			instance.score += DictionaryMinigame.instance.getScore ();
 		}
 	}
-	
+	/*
 	void OnGUI(){
 		GUI.Label (new Rect (10, 10, 100, 30), "Wins: " + wins);
 		GUI.Label (new Rect (10, 40, 150, 30), "Losses: " + losses);
 		GUI.Label (new Rect (10, 70, 150, 30), "Score: " + score);
-	}
+	}*/
 }
