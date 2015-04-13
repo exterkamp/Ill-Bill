@@ -315,7 +315,11 @@ public class spawnControllerScript : MonoBehaviour {
 				missilesRemaining -= 1;
 
 			}
-			yield return new WaitForSeconds(Random.Range(1f,3f));
+			float adjustment = 1f;
+
+			if (timeAttack){adjustment = 0.5f;}
+
+			yield return new WaitForSeconds(Random.Range(1f*adjustment,3f*adjustment));
 
 			
 		}

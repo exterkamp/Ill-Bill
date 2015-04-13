@@ -34,6 +34,6 @@ public class buttonControllerMissile : MonoBehaviour {
 	public void onClickHandler(){
 		DictionaryMinigame.instance.setDiff ((int)Camera.main.transform.FindChild ("Canvas").transform.FindChild("Slider").GetComponent<Slider> ().value);
 		print (DictionaryMinigame.instance.getDiff());
-		Application.LoadLevel ("missileCommandMain");
+		Application.LoadLevel ("missileCommandMainTimed");
 	}
 }
