@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyShooter : MonoBehaviour {
-
+	
 	public Boundary boundary;
 	public GameObject Explosion;
 	public Rigidbody2D shot;
@@ -24,7 +24,7 @@ public class EnemyShooter : MonoBehaviour {
 		fireRate = Random.Range (minFireRate, maxFireRate);
 		StartCoroutine (FireShots());
 	}
-
+	
 	IEnumerator FireShots() {
 		while (true) {
 			yield return new WaitForSeconds(fireRate);
@@ -40,28 +40,28 @@ public class EnemyShooter : MonoBehaviour {
 			Destroy (gameObject);
 			Destroy (other.gameObject);
 			DictionaryMinigame.instance.incScore (2);
-			GameManager.editSpawnRate ();
+			GameManagerBH.editSpawnRate ();
 		}
 	}
-
+	
 	public static void setSpeed(float min, float max) {
 		minSpeed = min;
 		maxSpeed = max;
 	}
-
+	
 	public static void setFireRate(float min, float max) {
 		minFireRate = min;
 		maxFireRate = max;
 	}
-
+	
 	public static void setFireSpeed(float speed) {
 		shotSpeed = speed;
 	}
-
+	
 	public static float getMinSpeed() {
 		return minSpeed;
 	}
-
+	
 	public static float getMaxSpeed() {
 		return maxSpeed;
 	}

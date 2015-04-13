@@ -26,8 +26,8 @@ public class mapGraphController : MonoBehaviour {
 															new string[]{"a Stubbed Toe","a Broken Foot"}};
 	public GameObject markerPrefab;
 	public List<GameObject> markers = null;
-	private string[] levels = {"FlappyBirdMain", "missileCommandMain"};
-	private string[] levelString = {"Artery Runner", "Virus Defense"};
+	private string[] levels = {"FlappyBirdMain", "missileCommandMain", "BulletHellMain"};
+	private string[] levelString = {"Artery Runner", "Virus Defense", "Bloodstream Battle"};
 
 	public void renderExisting(){
 		getMarkerObjects(DictionaryGameState.instance.getMarkers ());

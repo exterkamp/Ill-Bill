@@ -1,15 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DictionaryGameState.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManagerBH.cs">
     <Files>
-      <File FileName="Assets\Scripts\BodyMapController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\mapGraphController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DictionaryGameState.cs" Line="43" Column="22" />
-      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SiloController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\markerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\theGeneralScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MinigameSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DictionaryGameState.cs" Line="24" Column="18" />
+      <File FileName="Assets\Scripts\BodyMapController.cs" Line="49" Column="6" />
+      <File FileName="Assets\Scripts\mapGraphController.cs" Line="103" Column="1" />
+      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="55" Column="3" />
+      <File FileName="Assets\Scripts\PlayerBH.cs" Line="96" Column="17" />
+      <File FileName="Assets\Scripts\GameManagerBH.cs" Line="161" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

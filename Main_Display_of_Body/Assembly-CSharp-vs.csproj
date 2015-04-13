@@ -48,20 +48,25 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Background.cs" />
      <Compile Include="Assets\Scripts\BodyMapController.cs" />
-     <Compile Include="Assets\Scripts\ButtonController.cs" />
      <Compile Include="Assets\Scripts\DestroyBG.cs" />
+     <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
      <Compile Include="Assets\Scripts\DestroyObstacle.cs" />
      <Compile Include="Assets\Scripts\DictionaryGameState.cs" />
      <Compile Include="Assets\Scripts\DictionaryMinigame.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyGroup.cs" />
+     <Compile Include="Assets\Scripts\EnemyShooter.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\FlappyDictionary.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameManagerBH.cs" />
      <Compile Include="Assets\Scripts\GenerateBG.cs" />
      <Compile Include="Assets\Scripts\GenerateObst.cs" />
      <Compile Include="Assets\Scripts\MinigameSelect.cs" />
      <Compile Include="Assets\Scripts\Obstacle.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerBH.cs" />
      <Compile Include="Assets\Scripts\SiloController.cs" />
-     <Compile Include="Assets\Scripts\buttonControllerMissile.cs" />
      <Compile Include="Assets\Scripts\cameraLerper.cs" />
      <Compile Include="Assets\Scripts\explosionScript.cs" />
      <Compile Include="Assets\Scripts\mapGraphController.cs" />

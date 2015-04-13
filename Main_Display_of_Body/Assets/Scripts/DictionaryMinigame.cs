@@ -4,6 +4,7 @@ using System.Collections;
 public class DictionaryMinigame : MonoBehaviour {
 	public static DictionaryMinigame instance;
 	private int difficulty;
+	private int goal;
 	private int score;
 	private bool winLose;  //true for win and false for lose
 	
@@ -35,6 +36,10 @@ public class DictionaryMinigame : MonoBehaviour {
 	
 	public void setScore(int newScore){
 		score = newScore;
+	}
+
+	public void incScore(int incAmount) {
+		score += incAmount;
 	}
 	
 	public int getScore(){

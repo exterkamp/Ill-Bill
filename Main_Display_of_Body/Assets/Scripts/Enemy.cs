@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
 			Destroy (gameObject);
 			Destroy (other.gameObject);
 			DictionaryMinigame.instance.incScore (1);
-			GameManager.editSpawnRate ();
+			GameManagerBH.editSpawnRate ();
 		}
 	}
 
