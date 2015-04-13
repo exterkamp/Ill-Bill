@@ -99,4 +99,10 @@ public class mapGraphController : MonoBehaviour {
 		DictionaryGameState.instance.addMarker (newMarkerParams);
 		//GameObject.Destroy (marker);
 	}
+
+	public void generate(string str) {
+		string[] strArr = str.Split (';');
+		string[] newMarkerParams = {strArr[0],strArr[1],strArr[2],strArr[3],strArr[4],strArr[5],strArr[6],strArr[7]};
+		DictionaryGameState.instance.initializeMarker (newMarkerParams);
+	}
 }

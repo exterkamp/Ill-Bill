@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using System.Collections.Generic;
 
 public class BodyMapController : MonoBehaviour {
 	public static BodyMapController instance;
@@ -7,6 +9,7 @@ public class BodyMapController : MonoBehaviour {
 	public int wins;
 	public int losses;
 	public int score;
+	private string fileName = "GameData";
 
 	void Start(){
 		if (instance == null) {
@@ -14,9 +17,14 @@ public class BodyMapController : MonoBehaviour {
 			DontDestroyOnLoad (this.gameObject);
 			//seed first points
 			//print ("seeding");
-			int max = Random.Range (1, 3);
-			for (int i = 0; i <= max; i++) {
-				mapControl.generate ();
+			if (File.Exists (pathForDocumentsFile(fileName))) {
+				readData(fileName);
+			} else {
+				int max = Random.Range (1, 3);
+				for (int i = 0; i <= max; i++) {
+					mapControl.generate ();
+					writeData (fileName);
+				}
 			}
 			mapControl.renderExisting ();
 		} else if(instance != this){
@@ -24,7 +32,6 @@ public class BodyMapController : MonoBehaviour {
 		}
 		//mapControl.renderExisting ();
 
-	
 	}
 
 	// Use this for initialization
@@ -58,6 +65,7 @@ public class BodyMapController : MonoBehaviour {
 			mapControl.renderExisting();
 			//}
 			instance.score += DictionaryMinigame.instance.getScore ();
+			writeData (fileName);
 		}
 	}
 	/*
@@ -66,4 +74,69 @@ public class BodyMapController : MonoBehaviour {
 		GUI.Label (new Rect (10, 40, 150, 30), "Losses: " + losses);
 		GUI.Label (new Rect (10, 70, 150, 30), "Score: " + score);
 	}*/
+
+	public string pathForDocumentsFile(string filename) { 
+		if (Application.platform == RuntimePlatform.Android) {
+			string path = Application.persistentDataPath;	
+			path = path.Substring(0, path.LastIndexOf( '/' ));	
+			return Path.Combine (path, filename);
+		}	
+		else {
+			string path = Application.dataPath;	
+			path = path.Substring(0, path.LastIndexOf( '/' ));
+			return Path.Combine (path, filename);
+		}
+	}
+	
+	public void writeData(string filename) {
+		#if !WEB_BUILD
+		string path = pathForDocumentsFile(filename);
+		FileStream file = new FileStream (path, FileMode.Create, FileAccess.Write);
+		
+		StreamWriter sw = new StreamWriter(file);
+		sw.WriteLine (instance.wins.ToString ());
+		//print ("write wins: " + instance.wins.ToString ());
+		sw.WriteLine (instance.losses.ToString ());
+		//print ("write losses: " + instance.losses.ToString ());
+		sw.WriteLine (instance.score.ToString ());
+		//print ("write score: " + instance.score.ToString ());
+		List<string[]> markerWrite = DictionaryGameState.instance.getMarkers ();
+		for (int i = 0; i < markerWrite.Count; i++) {
+			string[] strArr = markerWrite[i];
+			sw.WriteLine(strArr[0] + ";" + strArr[1] + ";" + strArr[2] + ";" + strArr[3] + ";" + strArr[4] + ";" + strArr[5] + ";" + strArr[6] + ";" + strArr[7]);
+		}
+		sw.Close();
+		file.Close();
+		#endif	
+	}
+	
+	public void readData(string filename) {
+		#if !WEB_BUILD
+		string path = pathForDocumentsFile(filename);
+		
+		if (File.Exists(path)) {
+			FileStream file = new FileStream (path, FileMode.Open, FileAccess.Read);
+			StreamReader sr = new StreamReader(file);
+			
+			string str = null;
+			str = sr.ReadLine ();
+			//print ("read wins: " + str);
+			instance.wins = int.Parse (str);
+			str = sr.ReadLine ();
+			//print ("read losses: " + str);
+			instance.losses = int.Parse (str);
+			str = sr.ReadLine ();
+			//print ("read score: " + str);
+			instance.score = int.Parse (str);
+			while ((str = sr.ReadLine ()) != null) {
+				//print ("read generate: " + str);
+				mapControl.generate (str);
+			}
+			
+			sr.Close();
+			file.Close();
+		}
+		#else
+		#endif 
+	}
 }

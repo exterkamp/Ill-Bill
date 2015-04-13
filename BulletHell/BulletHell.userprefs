@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Main_Display_of_Body/Assets/Scripts/DictionaryMinigame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Main_Display_of_Body/Assets/Scripts/BodyMapController.cs">
     <Files>
-      <File FileName="../Main_Display_of_Body/Assets/Scripts/GameManagerBH.cs" Line="21" Column="13" />
-      <File FileName="../Main_Display_of_Body/Assets/Scripts/DictionaryMinigame.cs" Line="1" Column="1" />
+      <File FileName="../Main_Display_of_Body/Assets/Scripts/BodyMapController.cs" Line="20" Column="4" />
+      <File FileName="../Main_Display_of_Body/Assets/Scripts/mapGraphController.cs" Line="40" Column="34" />
+      <File FileName="../Main_Display_of_Body/Assets/Scripts/DictionaryGameState.cs" Line="52" Column="3" />
+      <File FileName="Assets/Scripts/ButtonController.cs" Line="56" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
