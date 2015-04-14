@@ -67,8 +67,10 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerBH.cs" />
      <Compile Include="Assets\Scripts\SiloController.cs" />
+     <Compile Include="Assets\Scripts\buttonExitMiniScript.cs" />
      <Compile Include="Assets\Scripts\cameraLerper.cs" />
      <Compile Include="Assets\Scripts\explosionScript.cs" />
+     <Compile Include="Assets\Scripts\mainMenuCameraController.cs" />
      <Compile Include="Assets\Scripts\mapGraphController.cs" />
      <Compile Include="Assets\Scripts\markerScript.cs" />
      <Compile Include="Assets\Scripts\missileCollector.cs" />

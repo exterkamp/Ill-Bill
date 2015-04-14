@@ -1,13 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManagerBH.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\buttonExitMiniScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\DictionaryGameState.cs" Line="24" Column="18" />
-      <File FileName="Assets\Scripts\BodyMapController.cs" Line="49" Column="6" />
-      <File FileName="Assets\Scripts\mapGraphController.cs" Line="103" Column="1" />
-      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="55" Column="3" />
-      <File FileName="Assets\Scripts\PlayerBH.cs" Line="96" Column="17" />
-      <File FileName="Assets\Scripts\GameManagerBH.cs" Line="161" Column="34" />
+      <File FileName="Assets\Scripts\mainMenuCameraController.cs" Line="8" Column="34" />
+      <File FileName="Assets\Scripts\buttonExitMiniScript.cs" Line="7" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
