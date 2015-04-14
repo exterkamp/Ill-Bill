@@ -287,6 +287,17 @@ public class GameManager : MonoBehaviour {
 	void Update() {
 		scoreText.text = "Score: " + score;
 
+		if(score==goal){
+	
+			spawnTimeDec=.22f;
+			spawnIncRate=1;
+
+			speedInc=.2f;
+			speedIncRate=1;
+
+	
+		}
+
 		if(score>=prevSpawnInc+spawnIncRate){
 			prevSpawnInc=score;
 			if(spawnWait-spawnTimeDec>.5){
