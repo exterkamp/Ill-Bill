@@ -51,6 +51,10 @@ public class DictionaryGameState : MonoBehaviour {
 		}
 	}
 
+	public void initializeMarker(string[] parameters) {
+		markers.Add (parameters);
+	}
+
 	[System.Obsolete("This is depracted, use stirng[] instead.")]
 	public void addMarker(GameObject marker){
 		markerScript ms = marker.GetComponent<markerScript>();

@@ -13,6 +13,7 @@ public class GameManagerBH : MonoBehaviour {
 	public GameObject enemyShooter;
 	public GameObject enemyGroup;
 	public Text scoreText;
+	public Text goalText;
 
 	private static int goal = 25;
 	private static float enemySpawnWait;
@@ -21,6 +22,7 @@ public class GameManagerBH : MonoBehaviour {
 	
 	void Start () {
 		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString ();
+		goalText.text = "Goal: " + goal;
 		switch (DictionaryMinigame.instance.getDiff ()) {
 		case 10:
 			Enemy.setSpeed (3.25f, 5.25f);
