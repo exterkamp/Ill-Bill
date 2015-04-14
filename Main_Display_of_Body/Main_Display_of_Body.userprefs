@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\buttonExitMiniScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BodyMapController.cs">
     <Files>
+      <File FileName="Assets\Scripts\BodyMapController.cs" Line="17" Column="4" />
       <File FileName="Assets\Scripts\mainMenuCameraController.cs" Line="8" Column="34" />
-      <File FileName="Assets\Scripts\buttonExitMiniScript.cs" Line="7" Column="28" />
+      <File FileName="Assets\Scripts\buttonExitMiniScript.cs" Line="7" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

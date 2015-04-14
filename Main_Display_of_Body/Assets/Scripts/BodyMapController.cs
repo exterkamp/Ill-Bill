@@ -18,8 +18,10 @@ public class BodyMapController : MonoBehaviour {
 			//seed first points
 			//print ("seeding");
 			if (File.Exists (pathForDocumentsFile(fileName))) {
+				//Debug.Log ("reading data");
 				readData(fileName);
 			} else {
+				//Debug.Log("seeding");
 				int max = Random.Range (1, 3);
 				for (int i = 0; i <= max; i++) {
 					mapControl.generate ();
@@ -61,6 +63,7 @@ public class BodyMapController : MonoBehaviour {
 			//if (DictionaryGameState.instance.getMarkers() != null){
 			//print ("making more and rendering");
 			//mapControl.renderExisting ();
+			//Debug.Log("generating more");
 			mapControl.generate();
 			mapControl.renderExisting();
 			//}
@@ -80,7 +83,7 @@ public class BodyMapController : MonoBehaviour {
 			string path = Application.persistentDataPath;	
 			path = path.Substring(0, path.LastIndexOf( '/' ));	
 			return Path.Combine (path, filename);
-		}	
+		}	   
 		else {
 			string path = Application.dataPath;	
 			path = path.Substring(0, path.LastIndexOf( '/' ));
