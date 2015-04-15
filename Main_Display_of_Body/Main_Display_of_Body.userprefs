@@ -1,10 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/mainMenuCameraController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\spawnControllerScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/BodyMapController.cs" Line="145" Column="1" />
-      <File FileName="Assets/Scripts/mainMenuCameraController.cs" Line="14" Column="5" />
-      <File FileName="Assets/Scripts/buttonExitMiniScript.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\buttonExitMiniScript.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\BodyMapController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\mainMenuCameraController.cs" Line="14" Column="5" />
+      <File FileName="Assets\Scripts\Explosion.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\explosionScript.cs" Line="64" Column="1" />
+      <File FileName="Assets\Scripts\spawnControllerScript.cs" Line="281" Column="1" />
+      <File FileName="Assets\Scripts\DictionaryMinigame.cs" Line="41" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

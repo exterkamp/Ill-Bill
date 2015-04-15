@@ -161,7 +161,7 @@ public class spawnControllerScript : MonoBehaviour {
 		int score = 0;
 		foreach (GameObject g in siloPoints) {
 			if (g.transform.FindChild("city").GetComponent<SiloController>().state != SiloController.siloState.ruins){
-				score += 200;
+				score += 5;
 			}
 		}
 		return score;
