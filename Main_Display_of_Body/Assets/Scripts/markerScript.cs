@@ -13,10 +13,11 @@ public class markerScript : MonoBehaviour {
 	public GameObject bodyPoint;
 	public int bPindex;
 	public int ID;
-
+	public Sprite[] markerSprites;
 
 	void Start(){
 		cam = Camera.main;
+		gameObject.GetComponent<SpriteRenderer> ().sprite = markerSprites[difficulty - 1];
 	}
 
 	public markerScript(int diff, string game, GameObject point, int ID){
@@ -25,6 +26,9 @@ public class markerScript : MonoBehaviour {
 		this.minigame = game;
 		this.bodyPoint = point;
 		this.ID = ID;
+
+		//gameObject.GetComponent<SpriteRenderer> ().sprite = markerSprites[diff - 1];
+
 	}
 	
 	// Update is called once per frame
