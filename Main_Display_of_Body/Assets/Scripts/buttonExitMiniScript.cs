@@ -12,4 +12,9 @@ public class buttonExitMiniScript : MonoBehaviour {
 		}
 		Application.LoadLevel ("MainMenu");
 	}
+
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Escape))
+			Application.LoadLevel ("MainMenu");
+	}
 }
