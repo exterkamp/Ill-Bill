@@ -14,15 +14,13 @@ public class GameManagerBH : MonoBehaviour {
 	public GameObject enemyGroup;
 	public Text scoreText;
 	public Text goalText;
-
+	
 	private static int goal = 25;
 	private static float enemySpawnWait;
 	private static float enemyShooterSpawnWait;
 	private static float enemyGroupSpawnWait;
 	
 	void Start () {
-		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString ();
-		goalText.text = "Goal: " + goal;
 		switch (DictionaryMinigame.instance.getDiff ()) {
 		case 10:
 			Enemy.setSpeed (3.25f, 5.25f);
@@ -115,13 +113,15 @@ public class GameManagerBH : MonoBehaviour {
 			enemyGroupSpawnWait = 10f;
 			break;
 		}
+		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString ();
+		goalText.text = "Goal: " + goal;
 		StartCoroutine (SpawnEnemyWaves ());
 		//StartCoroutine (SpawnEnemyShooterWaves ());
 		StartCoroutine (SpawnEnemyGroupWaves ());
 	}
 	
 	void Update() {
-		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore().ToString ();
+		scoreText.text = "Score: " + DictionaryMinigame.instance.getScore ().ToString ();
 	}
 	
 	IEnumerator SpawnEnemyWaves () {
@@ -146,11 +146,27 @@ public class GameManagerBH : MonoBehaviour {
 	}
 	
 	public static void editSpawnRate() {
-		if (DictionaryMinigame.instance.getScore () % 10 == 0 && enemySpawnWait >= 0.1f) {
-			enemySpawnWait -= 0.05f;
-		}
-		if (DictionaryMinigame.instance.getScore () % 10 == 0 && enemyShooterSpawnWait >= 0.1f) {
+		int score = DictionaryMinigame.instance.getScore ();
+		if (score >= goal) {
+			if (enemySpawnWait >= 0.25f) {
+				enemySpawnWait -= 0.05f;
+			}
+			/**if (enemyShooterSpawnWait >= 0.1f) {
 			enemyShooterSpawnWait -= 0.05f;
+			}*/
+			if (enemyGroupSpawnWait >= 1.0f) {
+				enemyGroupSpawnWait -= 0.25f;
+			}
+		} else {
+			if (score % 10 == 0 && enemySpawnWait >= 0.25f) {
+				enemySpawnWait -= 0.05f;
+			}
+			/**if (score % 10 == 0 && enemyShooterSpawnWait >= 0.1f) {
+			enemyShooterSpawnWait -= 0.05f;
+			}*/
+			if (score % 10 == 0 && enemyGroupSpawnWait >= 1.0f) {
+				enemyGroupSpawnWait -= 0.25f;
+			}
 		}
 	}
 	
