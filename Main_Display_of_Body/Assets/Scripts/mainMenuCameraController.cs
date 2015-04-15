@@ -8,12 +8,15 @@ public class mainMenuCameraController : MonoBehaviour {
 		Application.LoadLevel ("BodyMap");
 	}
 
-	public void clickListenerOptions(){
-		Debug.Log ("Options");
+	public void clickListenerNewPlay(){
+		Debug.Log ("Delete the old GameData and make a new play");
+
+		Application.LoadLevel ("BodyMap");
 	}
 
 	public void clickListenerExit(){
-		Debug.Log ("Exit");
+		//Debug.Log ("Exit");
+		Application.Quit();
 	}
 
 }
