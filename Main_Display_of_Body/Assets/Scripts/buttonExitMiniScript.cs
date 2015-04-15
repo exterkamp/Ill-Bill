@@ -14,13 +14,7 @@ public class buttonExitMiniScript : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			if (BodyMapController.instance != null) {
-				GameObject.Destroy (BodyMapController.instance.gameObject);
-				BodyMapController.instance = null;
-				DictionaryGameState.instance.setmarkers (new List<string[]> ());
-			}
+		if (Input.GetKeyDown (KeyCode.Escape))
 			Application.LoadLevel ("MainMenu");
-		}
 	}
 }
