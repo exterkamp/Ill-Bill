@@ -1,11 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Main_Display_of_Body/Assets/Scripts/BodyMapController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="../Main_Display_of_Body/Assets/Scripts/BodyMapController.cs" Line="20" Column="4" />
-      <File FileName="../Main_Display_of_Body/Assets/Scripts/mapGraphController.cs" Line="40" Column="34" />
-      <File FileName="../Main_Display_of_Body/Assets/Scripts/DictionaryGameState.cs" Line="52" Column="3" />
-      <File FileName="Assets/Scripts/ButtonController.cs" Line="56" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="121" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
