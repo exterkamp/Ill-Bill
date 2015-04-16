@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerBH : MonoBehaviour {
 	
+	public static PlayerBH instance;
 	public float speed;
 	public Boundary boundary;
 	public Rigidbody2D shot;
@@ -17,6 +18,12 @@ public class PlayerBH : MonoBehaviour {
 	private bool shooting;
 	
 	void Start() {
+		if (instance == null) {
+			instance = this;
+			DontDestroyOnLoad (gameObject);
+		} else if(instance != this) {
+			Destroy (gameObject);
+		}
 		player = GetComponent<Rigidbody2D> ();
 		sprite = GetComponent<SpriteRenderer> ();
 		sprite.sprite = playerSprite;
@@ -101,5 +108,9 @@ public class PlayerBH : MonoBehaviour {
 			Destroy (other.gameObject);
 			GameManagerBH.endGame();
 		}
+	}
+	
+	public void setFireRate(float fireRate) {
+		this.fireRate = fireRate;
 	}
 }
