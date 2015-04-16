@@ -6,6 +6,25 @@ public class mapGraphController : MonoBehaviour {
 
 	public GameObject[] bodyPoints;
 
+	public List<int>[] adjacencyList = new List<int>[16]{
+		new List<int>{1/*chest*/}, //head adjacency
+		new List<int>{0/*head*/, 2/*belly*/, 4/*L sh*/, 7/*R sh*/}, //chest adj
+		new List<int>{1/*chest*/, 3/*pelvis*/}, //belly adj
+		new List<int>{2/*belly*/, 10/*L hip*/, 13/*R hip*/}, //pelvis adj
+		new List<int>{1/*chest*/, 5/*L elbow*/}, //L shoulder adj
+		new List<int>{4/*L sh*/, 6/*L hand*/}, //L elbow adj
+		new List<int>{5/*L elbow*/}, //L hand adj
+		new List<int>{1/*chest*/, 8/*R elbow*/}, //R shoulder adj
+		new List<int>{7/*R sh*/, 9/*R hand*/}, //R elbow adj
+		new List<int>{8/*R elbow*/}, //R hand adj
+		new List<int>{3/*pelvis*/, 11/*L knee*/}, //L hip adj
+		new List<int>{10/*L hip*/, 12/*L foot*/}, //L knee adj
+		new List<int>{11/*L knee*/}, //L foot adj
+		new List<int>{3/*pelvis*/, 14/*R knee*/}, //R hip adj
+		new List<int>{13/*R hip*/, 15/*R foot*/}, //R knee adj
+		new List<int>{14/*R knee*/} //R foot adj
+	};
+
 	private string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of "};
 
 	private string[][] bodyPointStrings = new string[16][]{ new string[]{"a Headache","a Jaw Fracture"},
@@ -69,6 +88,11 @@ public class mapGraphController : MonoBehaviour {
 		return rValue;
 	}
 
+	/*
+	public string V3String(int index){
+		return bodyPoints [index].transform.position.ToString ("F3");
+	}
+	*/
 
 	public void generate(){
 		//COMMENTED CODE KEPT JUST IN CASE, DO NOT DELETE
