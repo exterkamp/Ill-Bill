@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\missileScript.cs" />
      <Compile Include="Assets\Scripts\spawnControllerScript.cs" />
      <Compile Include="Assets\Scripts\theGeneralScript.cs" />
+     <Compile Include="Assets\Scripts\videoController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
