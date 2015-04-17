@@ -38,8 +38,8 @@ public class BodyMapController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-
 		if (instance != null) {
+			DictionaryGameState.instance.resetInfection();
 			if (DictionaryMinigame.instance.getWL ()) {
 				instance.wins++;
 				//delete the last marker clicked
@@ -53,9 +53,22 @@ public class BodyMapController : MonoBehaviour {
 					diff += 1;
 					s[3] = diff.ToString();
 				}
-				else{
-					//spread disease
+				//spread disease
+				int epicenter = System.Convert.ToInt32 (s[6]);
+				int spreadChance = Random.Range(1,11);
+				Debug.ClearDeveloperConsole();
+				Debug.Log("Location: " + epicenter);
+				Debug.Log("Spread Chance: " + spreadChance + " Diff: " + diff);
+				if(diff >= spreadChance){
+					DictionaryGameState.instance.infectable[epicenter] = false;
+					for(int j = 0; j < mapGraphController.adjacencyList[epicenter].Count; j++){
+						string[] newParams = s;
+						newParams[6] = mapGraphController.adjacencyList[epicenter][j].ToString();
+						Debug.Log("Spread to: " + newParams[6] + "\n**********");
+						DictionaryGameState.instance.addMarker(newParams);
+					}
 				}
+				Debug.Log("-----------------");
 
 
 				//increase diff of last markerScript clicked

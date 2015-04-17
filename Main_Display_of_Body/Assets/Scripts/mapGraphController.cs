@@ -6,7 +6,7 @@ public class mapGraphController : MonoBehaviour {
 
 	public GameObject[] bodyPoints;
 
-	public List<int>[] adjacencyList = new List<int>[16]{
+	public static List<int>[] adjacencyList = new List<int>[16]{
 		new List<int>{1/*chest*/}, //head adjacency
 		new List<int>{0/*head*/, 2/*belly*/, 4/*L sh*/, 7/*R sh*/}, //chest adj
 		new List<int>{1/*chest*/, 3/*pelvis*/}, //belly adj
