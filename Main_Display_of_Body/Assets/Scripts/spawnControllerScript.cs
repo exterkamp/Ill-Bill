@@ -3,7 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class spawnControllerScript : MonoBehaviour {
-	
+
+	public bool timeAttack;
+	private float timer;
+
 	public GameObject[] prefabs;
 	public GameObject[] spawnPoints;
 	//public GameObject[] targetPoints;
@@ -26,65 +29,98 @@ public class spawnControllerScript : MonoBehaviour {
 		//setup difficulty
 		GameObject g = GameObject.FindGameObjectWithTag ("dictionary_minigame");
 		DictionaryMinigame DM = g.GetComponent<DictionaryMinigame> ();
-
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
-
 		int difficulty = DM.getDiff ();
 
-		if (difficulty == 1) {
-			missilesRemaining = 15;
-			enemyMissileSpeed = 0.020f;
-			friendlyMissileSpeed = 0.2f;
-			clusterChance = 0.0f;
-		} else if (difficulty == 2) {
-			missilesRemaining = 15;
-			enemyMissileSpeed = 0.025f;
-			friendlyMissileSpeed = 0.2f;
-			clusterChance = 0.0001f;
-		} else if (difficulty == 3) {
-			missilesRemaining = 15;
-			enemyMissileSpeed = 0.025f;
-			friendlyMissileSpeed = 0.15f;
-			clusterChance = 0.0005f;
-		} else if (difficulty == 4) {
-			missilesRemaining = 25;
-			enemyMissileSpeed = 0.025f;
-			friendlyMissileSpeed = 0.175f;
-			clusterChance = 0.0075f;
-		} else if (difficulty == 5) {
-			missilesRemaining = 25;
-			enemyMissileSpeed = 0.025f;
-			friendlyMissileSpeed = 0.1f;
-			clusterChance = 0.001f;
-		} else if (difficulty == 6) {
-			missilesRemaining = 25;
-			enemyMissileSpeed = 0.0275f;
-			friendlyMissileSpeed = 0.1f;
-			clusterChance = 0.001f;
-		} else if (difficulty == 7) {
-			missilesRemaining = 30;
+
+		switch (timeAttack) {
+		case false:
+			if (difficulty == 1) {
+				missilesRemaining = 15;
+				enemyMissileSpeed = 0.020f;
+				friendlyMissileSpeed = 0.2f;
+				clusterChance = 0.0f;
+			} else if (difficulty == 2) {
+				missilesRemaining = 15;
+				enemyMissileSpeed = 0.025f;
+				friendlyMissileSpeed = 0.2f;
+				clusterChance = 0.0001f;
+			} else if (difficulty == 3) {
+				missilesRemaining = 15;
+				enemyMissileSpeed = 0.025f;
+				friendlyMissileSpeed = 0.15f;
+				clusterChance = 0.0005f;
+			} else if (difficulty == 4) {
+				missilesRemaining = 25;
+				enemyMissileSpeed = 0.025f;
+				friendlyMissileSpeed = 0.175f;
+				clusterChance = 0.0075f;
+			} else if (difficulty == 5) {
+				missilesRemaining = 25;
+				enemyMissileSpeed = 0.025f;
+				friendlyMissileSpeed = 0.1f;
+				clusterChance = 0.001f;
+			} else if (difficulty == 6) {
+				missilesRemaining = 25;
+				enemyMissileSpeed = 0.0275f;
+				friendlyMissileSpeed = 0.1f;
+				clusterChance = 0.001f;
+			} else if (difficulty == 7) {
+				missilesRemaining = 30;
+				enemyMissileSpeed = 0.03f;
+				friendlyMissileSpeed = 0.1f;
+				clusterChance = 0.005f;
+			} else if (difficulty == 8) {
+				missilesRemaining = 30;
+				enemyMissileSpeed = 0.0325f;
+				friendlyMissileSpeed = 0.075f;
+				clusterChance = 0.006f;
+			} else if (difficulty == 9) {
+				missilesRemaining = 30;
+				enemyMissileSpeed = 0.035f;
+				friendlyMissileSpeed = 0.085f;
+				clusterChance = 0.0075f;
+			} else {
+				missilesRemaining = 35;
+				enemyMissileSpeed = 0.04f;
+				friendlyMissileSpeed = 0.1f;
+				clusterChance = 0.008f;
+			}
+			break;
+		case true:
+			if (difficulty == 1) {
+				missilesRemaining = 20;
+			} else if (difficulty == 2) {
+				missilesRemaining = 25;
+			} else if (difficulty == 3) {
+				missilesRemaining = 30;
+			} else if (difficulty == 4) {
+				missilesRemaining = 35;
+			} else if (difficulty == 5) {
+				missilesRemaining = 40;
+			} else if (difficulty == 6) {
+				missilesRemaining = 45;
+			} else if (difficulty == 7) {
+				missilesRemaining = 50;
+			} else if (difficulty == 8) {
+				missilesRemaining = 55;
+			} else if (difficulty == 9) {
+				missilesRemaining = 60;
+			} else{
+				missilesRemaining = 70;
+			}
+			timer = missilesRemaining;
+			missilesRemaining = 500;
 			enemyMissileSpeed = 0.03f;
 			friendlyMissileSpeed = 0.1f;
 			clusterChance = 0.005f;
-		} else if (difficulty == 8) {
-			missilesRemaining = 30;
-			enemyMissileSpeed = 0.0325f;
-			friendlyMissileSpeed = 0.075f;
-			clusterChance = 0.006f;
-		} else if (difficulty == 9) {
-			missilesRemaining = 30;
-			enemyMissileSpeed = 0.035f;
-			friendlyMissileSpeed = 0.085f;
-			clusterChance = 0.0075f;
-		} else {
-			missilesRemaining = 35;
-			enemyMissileSpeed = 0.04f;
-			friendlyMissileSpeed = 0.1f;
-			clusterChance = 0.008f;
+			break;
 		}
-
 		GUINumberMissileRemaining = Camera.main.transform.FindChild("Canvas").transform.FindChild("numberText").gameObject.GetComponent<Text>();
+		if (timeAttack) {
+			GUINumberMissileRemaining.fontSize = 45;
+		}
 		scoreText = Camera.main.transform.FindChild("Canvas").transform.FindChild("Score").gameObject.GetComponent<Text>();
+
 		//DM = GameObject.FindGameObjectWithTag ("dictionary_minigame").GetComponent<DictionaryMinigame> ();
 
 		StartCoroutine (missileLaunch());
@@ -94,8 +130,14 @@ public class spawnControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GUINumberMissileRemaining.text = missilesRemaining.ToString ();
-		if (Input.GetMouseButtonDown (0)) {
+		if (timeAttack) {
+			timer -= Time.deltaTime;
+			string suffix = (timer >= 1f) ?  " secs" : " sec";
+			GUINumberMissileRemaining.text = timer.ToString ("F1") + suffix;
+		} else {
+			GUINumberMissileRemaining.text = missilesRemaining.ToString ();
+		}
+			if (Input.GetMouseButtonDown (0)) {
 			//get silo
 			Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			targetPos.z = 0f;
@@ -144,9 +186,9 @@ public class spawnControllerScript : MonoBehaviour {
 	}
 
 	void LoadMenu(){
-		//FD.setAttempts(3);
-		//Destroy(FD.gameObject);
+		//body map for final game, splash for testing
 		Application.LoadLevel("BodyMap");
+		//Application.LoadLevel("splashMenu");
 	}
 
 	public void incScore(int scoreInc){
@@ -161,7 +203,7 @@ public class spawnControllerScript : MonoBehaviour {
 		int score = 0;
 		foreach (GameObject g in siloPoints) {
 			if (g.transform.FindChild("city").GetComponent<SiloController>().state != SiloController.siloState.ruins){
-				score += 5;
+				score += 2;
 			}
 		}
 		return score;
@@ -174,8 +216,14 @@ public class spawnControllerScript : MonoBehaviour {
 
 		//print (missilesRemaining);
 		//print (GameObject.FindGameObjectsWithTag("enemyMissile").Length);
-		if (missilesRemaining == 0 && GameObject.FindGameObjectsWithTag("enemyMissile").Length == 0){
-			gameOver = 1;
+		if (timeAttack) {
+			if (timer <= 0f){
+				gameOver = 1;
+			}
+		} else {
+			if (missilesRemaining == 0 && GameObject.FindGameObjectsWithTag ("enemyMissile").Length == 0) {
+				gameOver = 1;
+			}
 		}
 
 		//if last missile blows you up, you lose still :( so check after checking if all missiles gone
@@ -267,7 +315,11 @@ public class spawnControllerScript : MonoBehaviour {
 				missilesRemaining -= 1;
 
 			}
-			yield return new WaitForSeconds(Random.Range(1f,3f));
+			float adjustment = 1f;
+
+			if (timeAttack){adjustment = 0.5f;}
+
+			yield return new WaitForSeconds(Random.Range(1f*adjustment,3f*adjustment));
 
 			
 		}
