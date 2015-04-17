@@ -1,9 +1,6 @@
-1
-6
-32
-(0.980, -2.730, 0.000);There are reports of a Broken Hand;Bloodstream Battle;10;BulletHellMain;;8;0
-(-2.560, -2.380, 0.000);There have been sightings of Tennis Elbow;Artery Runner;7;FlappyBirdMain;;8;2
-(8.140, 0.280, 0.000);We are showing signs of a Stubbed Toe;Artery Runner;5;FlappyBirdMain;;11;3
-(-2.310, 0.000, 0.000);We are showing signs of Stomach Ache;Artery Runner;10;FlappyBirdMain;;14;4
-(-0.150, 0.830, 0.000);We are showing signs of a Sprained Hip;Artery Runner;5;FlappyBirdMain;;10;5
-(-2.560, 2.380, 0.000);There have been sightings of a Broken Elbow;Bloodstream Battle;1;BulletHellMain;;5;7
+0
+0
+0
+(8.140, -0.280, 0.000);We are showing signs of an Infected Toenail;Virus Defense;1;missileCommandMain;;15;0
+(0.980, 2.730, 0.000);WebMD recognizes the symptoms of a Bent Hand;Timed Defense;1;missileCommandMainTimed;;6;1
+(-2.560, -2.380, 0.000);WebMD recognizes the symptoms of an Infected Cut;Bloodstream Battle;1;BulletHellMain;;8;2
