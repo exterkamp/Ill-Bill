@@ -43,9 +43,9 @@ public class GamePromptScript : MonoBehaviour {
 					guiShow = true;
 					
 					if(prevwins<BodyMapController.instance.wins){
-						resultText.text = "You won !!!";
+						resultText.text = "You won!";
 					}else{
-						resultText.text = "You lost :(";
+						resultText.text = "You lost!";
 					}
 					
 					score=BodyMapController.instance.score;
