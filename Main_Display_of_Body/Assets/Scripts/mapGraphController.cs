@@ -24,7 +24,7 @@ public class mapGraphController : MonoBehaviour {
 		new List<int>{13/*R hip*/, 15/*R foot*/}, //R knee adj
 		new List<int>{14/*R knee*/} //R foot adj
 	};
-	private string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of ","There are rumors of ","There is evidence of ","We detected the symptoms of ","Test results indicate the presence of ","Tests show signs of ","We have detected the symptoms of ","WebMD recognizes the symptoms of "};
+	private string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of ","There are rumors of ","There is evidence of ","We detected the symptoms of ","Test results indicate the presence of ","Tests show signs of ","We are detecting the symptoms of ","WebMD recognizes the symptoms of "};
 	
 	private string[][] bodyPointStrings = 	new string[16][]{ new string[]{"a Headache","a Jaw Fracture","a Brain Aneurysm","a Black Eye","a Nose Bleed","a Tooth Ache","Dizziness","a Blood Clot","a Broken Nose","a Cut Lip","Internal Bleeding"},
 											new string[]{"Heart Attack","Chest pain","a Clogged Artery","a Blood Clot","Cardiac Arrest","a Broken Rib","a Cracked Rib","Several Broken Ribs","Fluid in the Lungs","a Punctured Lung","a Collapsed Lung","Internal Bleeding","Heart Burn"},
@@ -36,10 +36,10 @@ public class mapGraphController : MonoBehaviour {
 											new string[]{"a Rolled Shoulder","a Sprained Socket","a Dislocated Shoulder","a Broken Scapula","Tendonitis","a Bruised Shoulder","Internal Bleeding","Swelling","a Torn Rotator Cuff","a Scraped Shoulder"},
 											new string[]{"Tennis Elbow","a Broken Elbow","a Scraped Elbow","a Brusied Elbow","Loss of Circulation","Torn Ligaments","a Torn Ligament","Tendonitis","an Infected Cut","a Dislocated Elbow","a Burned Elbow"},
 											new string[]{"a Bent Hand","a Broken Hand","a Broken Finger","Broken Fingers","Broken Knuckles","a Separated Wrist","a Broken Wrist","a Fractured Wrist","an Arthritis Flare Up","an Amputated Finger"},
-											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
+											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","a Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
 											new string[]{"a Bent Knee","a Rotated Knee","a Scraped Knee","a Dislocated Knee","a Broken Kneecap","a Torn ACL","a Torn MCL","a Torn Miniscus","a Shattered Kneecap","a Sore Knee"},
 											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Laceration","a Major Laceratioin"},
-											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
+											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","a Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
 											new string[]{"a Bent Knee","a Rotated Knee","a Scraped Knee","a Dislocated Knee","a Broken Kneecap","a Torn ACL","a Torn MCL","a Torn Miniscus","a Shattered Kneecap","a Sore Knee"},
 											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Laceration","a Major Laceratioin"}};
 
