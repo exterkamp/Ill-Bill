@@ -26,7 +26,7 @@ public class mapGraphController : MonoBehaviour {
 	};
 	private string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of ","There are rumors of ","There is evidence of ","We detected the symptoms of ","Test results indicate the presence of ","Tests show signs of ","We are detecting the symptoms of ","WebMD recognizes the symptoms of "};
 	
-	private string[][] bodyPointStrings = 	new string[16][]{ new string[]{"a Headache","a Jaw Fracture","a Brain Aneurysm","a Black Eye","a Nose Bleed","a Tooth Ache","Dizziness","a Blood Clot","a Broken Nose","a Cut Lip","Internal Bleeding"},
+	private string[][] bodyPointStrings = 	new string[16][]{ new string[]{"a Headache","a Jaw Fracture","a Concussion","a Black Eye","a Nose Bleed","a Tooth Ache","Dizziness","a Blood Clot","a Broken Nose","a Cut Lip","Internal Bleeding"},
 											new string[]{"Heart Attack","Chest pain","a Clogged Artery","a Blood Clot","Cardiac Arrest","a Broken Rib","a Cracked Rib","Several Broken Ribs","Fluid in the Lungs","a Punctured Lung","a Collapsed Lung","Internal Bleeding","Heart Burn"},
 											new string[]{"Stomach Ache","Intestinal Distress","Kidney Stones","Internal Bleeding","Liver Failure","a Large Contusion","Stomach Virus","Food Poisoning","Vomiting","a Second Degree Burn"},
 											new string[]{"a Broken Pelvis","a Bruised Pelvis","a Bruised Groin","Bladder Infection","a Fractured Pelvis","a Shattered Pelivs","Internal Bleeding","an Inflamed Prostate","Diarrhea","Explosive Diarrhea"},//this one was hard
@@ -38,10 +38,10 @@ public class mapGraphController : MonoBehaviour {
 											new string[]{"a Bent Hand","a Broken Hand","a Broken Finger","Broken Fingers","Broken Knuckles","a Separated Wrist","a Broken Wrist","a Fractured Wrist","an Arthritis Flare Up","an Amputated Finger"},
 											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","a Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
 											new string[]{"a Bent Knee","a Rotated Knee","a Scraped Knee","a Dislocated Knee","a Broken Kneecap","a Torn ACL","a Torn MCL","a Torn Miniscus","a Shattered Kneecap","a Sore Knee"},
-											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Laceration","a Major Laceratioin"},
+											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Foot Laceration","a Major Foot Laceratioin"},
 											new string[]{"a Busted Hip","a Sprained Hip","Dislocated Hip","Broken Hip","Shattered Hip","Bruised Hip","a Torn Hip Flexor","Strained Hip Flexor","Internal Bleeding","a Contusion"},
 											new string[]{"a Bent Knee","a Rotated Knee","a Scraped Knee","a Dislocated Knee","a Broken Kneecap","a Torn ACL","a Torn MCL","a Torn Miniscus","a Shattered Kneecap","a Sore Knee"},
-											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Laceration","a Major Laceratioin"}};
+											new string[]{"a Stubbed Toe","a Broken Foot","a Broken Toe","Several Broken Toes","an Ingrown Toenail","an Infected Toenail","Athlete's Foot","an Amputated Toe","a Minor Foot Laceration","a Major Foot Laceratioin"}};
 
 	public GameObject markerPrefab;
 	public List<GameObject> markers = null;

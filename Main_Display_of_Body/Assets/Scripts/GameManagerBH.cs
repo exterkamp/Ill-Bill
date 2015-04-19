@@ -185,7 +185,8 @@ public class GameManagerBH : MonoBehaviour {
 			DictionaryMinigame.instance.setWL (true);
 		} else {
 			DictionaryMinigame.instance.setWL (false);
-		}
+ 		}
+		DictionaryMinigame.instance.setScore (Mathf.FloorToInt((DictionaryMinigame.instance.getScore () / 2)));
 		Application.LoadLevel ("BodyMap");
 	}
 }

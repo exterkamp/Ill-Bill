@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
 			
 		case 2:
 			initSpawnWait=1.8f;
-			spawnTimeDec=-0.02f;
+			spawnTimeDec=0.02f;
 			spawnIncRate=2;
 			
 			initSpeed=4f;
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour {
 			playerJumpF=330;
 			spawnRange = 0.1;
 			
-			goal = 10;
+			goal = 7;
 			
 			break;
 			
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour {
 			
 		case 4:
 			initSpawnWait=2.2f;
-			spawnTimeDec=-0.02f;
+			spawnTimeDec=0.02f;
 			spawnIncRate=2;
 			
 			initSpeed=4.25f;
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour {
 			playerJumpF=340;
 			spawnRange = 0.2;
 			
-			goal = 10;
+			goal = 7;
 			
 			break;
 			
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour {
 			break;
 			
 		case 6:
-			initSpawnWait=2.3f;
+			initSpawnWait=2f;
 			spawnTimeDec=-0.05f;
 			spawnIncRate=2;
 			
@@ -146,15 +146,15 @@ public class GameManager : MonoBehaviour {
 			speedInc=.05f;
 			speedIncRate=2;
 			
-			playerJumpF=365;
+			playerJumpF=385;
 			spawnRange = .45;
 			
-			goal = 13;
+			goal = 10;
 			
 			break;
 			
 		case 7:
-			initSpawnWait=2.75f;
+			initSpawnWait=2.25f;
 			spawnTimeDec=.1f;
 			spawnIncRate=2;
 			
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour {
 			speedInc=0;
 			speedIncRate=0;
 			
-			playerJumpF=380;
+			playerJumpF=400;
 			spawnRange = .3;
 			
 			goal = 13;
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour {
 			break;
 			
 		case 8:
-			initSpawnWait=2.75f;
+			initSpawnWait=2.0f;
 			spawnTimeDec=.08f;
 			spawnIncRate=1;
 			
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour {
 			speedInc=0.05f;
 			speedIncRate=2;
 			
-			playerJumpF=380;
+			playerJumpF=400;
 			spawnRange = .2;
 			
 			goal = 15;
@@ -186,15 +186,15 @@ public class GameManager : MonoBehaviour {
 			break;
 			
 		case 9:
-			initSpawnWait=2.7f;
+			initSpawnWait=1.5f;
 			spawnTimeDec=0;
 			spawnIncRate=0;
 			
-			initSpeed=7f;
+			initSpeed=7.25f;
 			speedInc=0;
 			speedIncRate=0;
 			
-			playerJumpF=400;
+			playerJumpF=425;
 			spawnRange = .5;
 			
 			goal = 15;
@@ -202,15 +202,15 @@ public class GameManager : MonoBehaviour {
 			break;
 			
 		case 10:
-			initSpawnWait=2.6f;
-			spawnTimeDec=.06f;
+			initSpawnWait=1.5f;
+			spawnTimeDec=.07f;
 			spawnIncRate=2;
 			
-			initSpeed=7f;
-			speedInc=.02f;
+			initSpeed=7.75f;
+			speedInc=0;
 			speedIncRate=3;
 			
-			playerJumpF=400;
+			playerJumpF=450;
 			spawnRange = .15;
 			
 			goal = 15;
@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour {
 		gameOverText.text = "Game Over! Score = "+score;
 		
 		if(score>DM.getScore ()){
-			DM.setScore (score);
+			DM.setScore (score*3);
 		}
 		
 		if(score>=goal){
@@ -355,10 +355,10 @@ public class GameManager : MonoBehaviour {
 				Instantiate(rocks[0]);
 				
 			} else if(difficulty<7){
-				Instantiate(rocks[Random.Range (0,1)]);
+				Instantiate(rocks[Random.Range (0,2)]);
 				
 			} else if(difficulty<9){
-				Instantiate(rocks[Random.Range (1,2)]);
+				Instantiate(rocks[Random.Range (1,3)]);
 				
 			} else{
 				Instantiate(rocks[2]);

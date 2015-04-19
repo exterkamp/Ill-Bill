@@ -39,7 +39,7 @@ public class EnemyShooter : MonoBehaviour {
 			explosion.transform.position = gameObject.transform.position;
 			Destroy (gameObject);
 			Destroy (other.gameObject);
-			DictionaryMinigame.instance.incScore (2);
+			DictionaryMinigame.instance.incScore (1);
 			GameManagerBH.editSpawnRate ();
 		}
 	}
