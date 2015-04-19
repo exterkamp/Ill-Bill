@@ -33,11 +33,11 @@ public class GamePromptScript : MonoBehaviour {
 		
 		
 		if (instance != null) {
-			//wins = DictionaryMinigame.instance.getWins ();
-			//losses = DictionaryMinigame.instance.getLosses ();
+			wins = BodyMapController.instance.wins;
+			losses = BodyMapController.instance.losses;
 			
 			
-			if(((wins = BodyMapController.instance.wins) !=0 || (losses = BodyMapController.instance.losses) != 0)   ){
+			if(wins !=0 || losses != 0){
 				
 				if(wins != prevwins|| losses != prevlosses){
 					guiShow = true;
