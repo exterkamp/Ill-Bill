@@ -31,7 +31,7 @@ public class PlayerBH : MonoBehaviour {
 	}
 	
 	void Update () {
-		#if UNITY_EDITOR
+		#if !UNITY_ANDROID || UNITY_EDITOR
 		if (Input.GetButton ("Fire1")) {
 			shooting = true;
 			Fire ();
