@@ -57,18 +57,20 @@ public class BodyMapController : MonoBehaviour {
 				int epicenter = System.Convert.ToInt32 (s[6]);
 				int spreadChance = Random.Range(1,11);
 				Debug.ClearDeveloperConsole();
-				Debug.Log("Location: " + epicenter);
-				Debug.Log("Spread Chance: " + spreadChance + " Diff: " + diff);
+				Debug.Log("Up Location: " + epicenter);
+				Debug.Log("Up Spread Chance: " + spreadChance + " Diff: " + diff);
 				if(diff >= spreadChance){
 					DictionaryGameState.instance.infectable[epicenter] = false;
 					for(int j = 0; j < mapGraphController.adjacencyList[epicenter].Count; j++){
 						string[] newParams = s;
-						newParams[6] = mapGraphController.adjacencyList[epicenter][j].ToString();
-						Debug.Log("Spread to: " + newParams[6] + "\n**********");
+						int adjacent = mapGraphController.adjacencyList[epicenter][j];
+						newParams[6] = adjacent.ToString();
+						newParams[0] = mapControl.bodyPoints[adjacent].transform.position.ToString("F3");
+						Debug.Log("Up Spread to: " + newParams[6] + "\nUp **********");
 						DictionaryGameState.instance.addMarker(newParams);
 					}
 				}
-				Debug.Log("-----------------");
+				Debug.Log("Up -----------------");
 
 
 				//increase diff of last markerScript clicked

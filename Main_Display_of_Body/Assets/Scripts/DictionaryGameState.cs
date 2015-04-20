@@ -7,7 +7,8 @@ public class DictionaryGameState : MonoBehaviour {
 	private List<string[]> markers;//0 = Vector3, 1 = injuryText, 2 = minigameText, 3 = diff, 4 = sceneName, 5 = bP, 6 = bPindex, 7 = ID
 	private int currentMarker;
 	private int nextID;
-	public bool[] infectable;
+	public bool[] infectable = new bool[16];
+	public mapGraphController mapControl;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class DictionaryGameState : MonoBehaviour {
 	}
 
 	public void resetInfection(){
-		infectable = new bool[16];
+		//infectable = new bool[16];
 		for (int i = 0; i < infectable.Length; i++) {
 			infectable[i] = true;
 		}
@@ -50,18 +51,29 @@ public class DictionaryGameState : MonoBehaviour {
 				//spread disease
 				int epicenter = System.Convert.ToInt32 (old[6]);
 				int spreadChance = Random.Range(1,11);
-				Debug.Log("Location: " + epicenter);
-				Debug.Log("Spread Chance: " + spreadChance + " Diff: " + diff);
+				Debug.Log("AM Location: " + epicenter);
+				Debug.Log("AM Spread Chance: " + spreadChance + " Diff: " + diff);
 				if(diff >= spreadChance && infectable[epicenter]){
 					infectable[epicenter] = false;
 					for(int j = 0; j < mapGraphController.adjacencyList[epicenter].Count; j++){
 						string[] newParams = old;
-						newParams[6] = mapGraphController.adjacencyList[epicenter][j].ToString();
-						Debug.Log("Spread to: " + newParams[6] + "\n**********");
+						int adjacent = mapGraphController.adjacencyList[epicenter][j];
+						newParams[6] = adjacent.ToString();
+						//lol such a roundabout way of doing this
+						mapGraphController ctrl = (mapGraphController)GameObject.FindGameObjectWithTag("bodyGraph").GetComponent("mapGraphController");
+						if(ctrl == null){
+							Debug.Log("Holy Cow!");
+						}
+						newParams[0] = ctrl.bodyPoints[adjacent].transform.position.ToString("F3");
+						string[] bPTextFirst = ctrl.bodyPointStrings[adjacent];
+						string bPText = ctrl.prefixes[Random.Range(0,ctrl.prefixes.Length)] + bPTextFirst[Random.Range (0, bPTextFirst.Length)];
+						newParams[1] = bPText;
+						newParams[3] = Random.Range(1, 4).ToString ();
+						Debug.Log("AM Spread to: " + newParams[6] + "\nAM **********");
 						addMarker(newParams);
 					}
 				}
-				Debug.Log("-----------------");
+				Debug.Log("AM -----------------");
 				add = false;
 			}
 		}

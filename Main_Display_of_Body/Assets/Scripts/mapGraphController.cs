@@ -24,10 +24,10 @@ public class mapGraphController : MonoBehaviour {
 		new List<int>{13/*R hip*/, 15/*R foot*/}, //R knee adj
 		new List<int>{14/*R knee*/} //R foot adj
 	};
-	private string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of ","There are rumors of ","There is evidence of ","We detected the symptoms of ","Test results indicate the presence of ","Tests show signs of ","We are detecting the symptoms of ","WebMD recognizes the symptoms of "};
+	public string[] prefixes = new string[]{"There are reports of ","We are showing signs of ","There have been sightings of ","There are rumors of ","There is evidence of ","We detected the symptoms of ","Test results indicate the presence of ","Tests show signs of ","We are detecting the symptoms of ","WebMD recognizes the symptoms of "};
 	
-	private string[][] bodyPointStrings = 	new string[16][]{ new string[]{"a Headache","a Jaw Fracture","a Concussion","a Black Eye","a Nose Bleed","a Tooth Ache","Dizziness","a Blood Clot","a Broken Nose","a Cut Lip","Internal Bleeding"},
-											new string[]{"Heart Attack","Chest pain","a Clogged Artery","a Blood Clot","Cardiac Arrest","a Broken Rib","a Cracked Rib","Several Broken Ribs","Fluid in the Lungs","a Punctured Lung","a Collapsed Lung","Internal Bleeding","Heart Burn"},
+	public string[][] bodyPointStrings = 	new string[16][]{ new string[]{"a Headache","a Jaw Fracture","a Concussion","a Black Eye","a Nose Bleed","a Tooth Ache","Dizziness","a Blood Clot","a Broken Nose","a Cut Lip","Internal Bleeding"},
+											new string[]{"Heart Attack","Chest pain","a Clogged Artery","a Blood Clot","Cardiac Arrest","a Broken Rib","a Cracked Rib","Several Broken Ribs","Fluid in the Lungs","a Punctured Lung","a Collapsed Lung","Internal Bleeding","Heart Burn", "a Broken Heart :("},
 											new string[]{"Stomach Ache","Intestinal Distress","Kidney Stones","Internal Bleeding","Liver Failure","a Large Contusion","Stomach Virus","Food Poisoning","Vomiting","a Second Degree Burn"},
 											new string[]{"a Broken Pelvis","a Bruised Pelvis","a Bruised Groin","Bladder Infection","a Fractured Pelvis","a Shattered Pelivs","Internal Bleeding","an Inflamed Prostate","Diarrhea","Explosive Diarrhea"},//this one was hard
 											new string[]{"a Rolled Shoulder","a Sprained Socket","a Dislocated Shoulder","a Broken Scapula","Tendonitis","a Bruised Shoulder","Internal Bleeding","Swelling","a Torn Rotator Cuff","a Scraped Shoulder"},
