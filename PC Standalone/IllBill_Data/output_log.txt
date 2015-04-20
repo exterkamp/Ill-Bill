@@ -1,0 +1,70 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: Mobile Intel(R) 4 Series Express Chipset Family (Microsoft Corporation - WDDM 1.1) (ID=0x2a42)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.106 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\shane\Documents\GitHub\Ill-Bill\PC Standalone\IllBill_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.780929 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 373.
+Total: 0.494617 ms (FindLiveObjects: 0.077459 ms CreateObjectMapping: 0.032663 ms MarkObjects: 0.321501 ms  DeleteObjects: 0.023331 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.162818 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 374.
+Total: 0.532880 ms (FindLiveObjects: 0.080725 ms CreateObjectMapping: 0.017731 ms MarkObjects: 0.381695 ms  DeleteObjects: 0.046195 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.764324 ms
+Up Location: 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Up Spread Chance: 9 Diff: 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Up -----------------
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 429.
+Total: 0.561811 ms (FindLiveObjects: 0.090991 ms CreateObjectMapping: 0.024264 ms MarkObjects: 0.408292 ms  DeleteObjects: 0.031730 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.205747 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 279.
+Total: 0.518415 ms (FindLiveObjects: 0.072326 ms CreateObjectMapping: 0.017731 ms MarkObjects: 0.363497 ms  DeleteObjects: 0.058327 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.573010 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 408.
+Total: 0.492751 ms (FindLiveObjects: 0.053661 ms CreateObjectMapping: 0.025197 ms MarkObjects: 0.385895 ms  DeleteObjects: 0.021464 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.762457 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 279.
+Total: 0.552012 ms (FindLiveObjects: 0.082125 ms CreateObjectMapping: 0.019598 ms MarkObjects: 0.386828 ms  DeleteObjects: 0.056927 ms)
+
