@@ -1,6 +1,6 @@
 2
-2
-58
-(8.140, 0.280, 0.000);There are reports of a Broken Foot;Virus Defense;5;missileCommandMain;;12;2
-(0.980, -2.730, 0.000);There are reports of a Broken Wrist;Bloodstream Battle;1;BulletHellMain;;9;3
-(-5.460, 1.680, 0.000);There is evidence of a Bruised Shoulder;Virus Defense;4;missileCommandMain;;4;4
+1
+81
+(-2.310, 0.000, 0.000);We are detecting the symptoms of a Second Degree Burn;Virus Defense;2;missileCommandMain;;2;0
+(-0.150, 0.830, 0.000);Test results indicate the presence of a Torn Hip Flexor;Virus Defense;2;missileCommandMain;;10;2
+(0.980, -2.730, 0.000);There is evidence of a Broken Finger;Timed Defense;1;missileCommandMainTimed;;9;4
